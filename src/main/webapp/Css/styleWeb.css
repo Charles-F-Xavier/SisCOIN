@@ -1,0 +1,56 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25-09-2022, 01:12:01
+    Author     : jr972
+*/
+
+body{
+    background-image: url('../Img/blob-scene-haikei.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.log{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.btn{
+    background-color: #5b4bae;
+    border-color: #5b4bae;
+}
+.btn:hover{
+    background-color: #4c6a9f !important;
+    border-color: #4c6a9f !important;
+
+}
+.card{
+    background-image: url('../Img/layered.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    border-radius: 20px;
+}
+
+@media (max-width: 412px){
+    .h2{
+        color: white !important;
+    }
+
+    .btn{
+        background-color: #0faecb;
+        border-color: #0faecb;
+    }
+    .btn:hover{
+        background-color: #64ccc4 !important;
+        border-color: #64ccc4 !important;
+
+    }
+}
