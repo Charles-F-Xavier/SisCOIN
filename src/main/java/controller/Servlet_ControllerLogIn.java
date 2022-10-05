@@ -8,9 +8,6 @@ import db.ConexionSingleton;
 import db.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -89,7 +86,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
             rut = request.getParameter("txt_rut");
             passw = request.getParameter("txt_pass");
 
-            out.println(rut + " " + passw + "<br>");
+            //out.println(rut + " " + passw + "<br>");
 
             Usuario oUsuario = new Usuario();
 
@@ -147,7 +144,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                         + "            }\n"
                         + "\n"
                         + "        </script>");
-                out.println("Hola " + oUsuario1.getNombre());
+                //out.println("Hola " + oUsuario1.getNombre());
                 /*out.println("<script type=\"text/javascript\">");
                 out.println("alert('User or password incorrect');");
                 out.println("succes();");
@@ -183,7 +180,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                         + "                        title: 'Alto!',\n"
                         + "                        text: 'Usuario con el Rut: " + oUsuario.getRut() + " no se encuentra! Verificar credenciales',\n"
                         + "                        icon: 'error',\n"
-                        + "                        timer: 5000,\n"
+                        + "                        timer: 3000,\n"
                         + "                        timerProgressBar: true,\n"
                         + "                        didOpen: () => {\n"
                         + "                              Swal.showLoading()\n"
@@ -202,9 +199,9 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                         + "            }\n"
                         + "\n"
                         + "        </script>");
-                out.println("Hola ");
+                //out.println("Hola ");
                 out.print("<script>error();</script>");
-                out.println("No eres ingeniero");
+                //out.println("No eres ingeniero");
             }
 
             out.println("</html>");

@@ -56,7 +56,7 @@
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <div class="my-4">
                                                             <div class="form-floating mb-1">
-                                                                <input type="text" name="txt_rut" onchange="javascript:return Rut(document.datosUser.txt_rut.value);" class="form-control" id="rut" placeholder="Rut">
+                                                                <input type="text" name="txt_rut" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" onchange="javascript:return Rut(document.datosUser.txt_rut.value);" class="form-control" id="rut" placeholder="Rut">
                                                                 <label for="rut">Rut</label>
                                                             </div>
                                                         </div>
