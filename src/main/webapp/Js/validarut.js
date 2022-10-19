@@ -26,7 +26,7 @@ function revisarDigito2(crut)
     largo = crut.length;
     if (largo < 2)
     {
-        alert("Debe ingresar el rut completo")
+        alert("Debe ingresar el rut completo22")
         window.document.txt_rut.focus();
         window.document.datosUser.txt_rut.select();
         return false;
@@ -65,10 +65,25 @@ function revisarDigito2(crut)
     }
     if (dvr != dv.toLowerCase())
     {
-        alert("EL rut es incorrecto")
-        window.document.datosUser.txt_rut.focus();
-        window.document.datosUser.txt_rut.select();
-        return false
+
+        //alert("EL rut es incorrecto");
+
+        Swal.fire({
+            title: 'Ops...',
+            text: "El rut ingresado no es valido! , por favor verificalo",
+            icon: 'error',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.document.datosUser.txt_rut.classList.remove('incorrect');
+                window.document.datosUser.txt_rut.classList.add('correct');
+                window.document.datosUser.txt_rut.focus();
+                window.document.datosUser.txt_rut.select();
+                return false
+            }
+        });
+
     }
 
     return true
@@ -83,9 +98,25 @@ function Rut(texto)
     texto = tmpstr;
     largo = texto.length;
 
-    if (largo < 5)
+    if (largo < 2)
     {
-        alert("Debe ingresar el rut completo")
+        //alert("Debe ingresar el rut completo")
+        
+                Swal.fire({
+                    title: 'Ops...',
+                    text: "El rut ingresado es muy corto! , por favor ingresa el rut completo",
+                    icon: 'error',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'ok!'
+                }).then((result) => {
+            if (result.isConfirmed) {
+                window.document.datosUser.txt_rut.classList.remove('incorrect');
+                window.document.datosUser.txt_rut.classList.add('correct');
+                window.document.datosUser.txt_rut.focus();
+                window.document.datosUser.txt_rut.select();
+                return false
+            }
+        });
         window.document.datosUser.txt_rut.focus();
         window.document.datosUser.txt_rut.select();
         return false;
@@ -130,8 +161,10 @@ function Rut(texto)
     for (i = (dtexto.length - 1), j = 0; i >= 0; i--, j++)
         invertido = invertido + dtexto.charAt(i);
 
-    window.document.datosUser.txt_rut.value = invertido.toUpperCase()
-
+    window.document.datosUser.txt_rut.value = invertido.toUpperCase();
+    window.document.datosUser.txt_rut.classList.remove('correct');
+    window.document.datosUser.txt_rut.classList.add('incorrect');
+    window.document.datosUser.txt_pass.focus();
 
     if (revisarDigito2(texto))
         return true;

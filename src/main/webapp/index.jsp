@@ -17,10 +17,30 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link rel="icon" href="Img/icon.png">
         <link rel="stylesheet" href="Css/styleWeb.css"/>
-        <script src="Js/validarut.js"></script>
-        <script src="Js/jquery.rut.js"></script>
+
+        <script src="Js/sweetalert2.all.min.js"></script>
+        <link rel="stylesheet" href="Css/sweetalert2.min.css">
+        <style>
+            .correct{
+                box-shadow: none;
+                border: 2px solid red;
+            }
+            .incorrect{
+                box-shadow: none;
+                border: 2px solid green;
+            }
+        </style>
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <div class="row justify-content-between">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <a class="navbar-brand " href="#">Local Cholito-Abarrotes</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <%
             /*ConexionSingleton oConexionSingleton = ConexionSingleton.getIntance();
 
@@ -56,7 +76,8 @@
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <div class="my-4">
                                                             <div class="form-floating mb-1">
-                                                                <input type="text" name="txt_rut" onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" onchange="javascript:return Rut(document.datosUser.txt_rut.value);" class="form-control" id="rut" placeholder="Rut">
+                                                                <input type="text" name="txt_rut" style="box-shadow: none;" onkeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                                                            event.returnValue = false;" onchange="javascript:return Rut(document.datosUser.txt_rut.value);" class="form-control" id="rut" placeholder="Rut">
                                                                 <label for="rut">Rut</label>
                                                             </div>
                                                         </div>
@@ -67,7 +88,7 @@
                                                         <div class="my-4">
                                                             <div class="input-group mb-3">
                                                                 <div class="form-floating">
-                                                                    <input type="password" autocomplete="off" name="txt_pass" class="form-control passwd" id="floatingInputGroup1" placeholder="Contraseña">
+                                                                    <input type="password" autocomplete="off" style="box-shadow: none;" name="txt_pass" class="form-control passwd" id="floatingInputGroup1" placeholder="Contraseña">
                                                                     <label for="floatingInputGroup1">Contraseña</label>
                                                                 </div>
                                                                 <span class="input-group-text">
@@ -94,59 +115,56 @@
                 </div>
             </div>
         </div>
-        <footer>
-
-        </footer>
-        <!--
-        <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3  border-top" style="background-color: white">
             <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <a href="/" class="mb-3 me-2 mb-md-0 lh-1">
                     <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
                 </a>
-                <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Company, Inc</span>
+                <span class="mb-3 mb-md-0 " style="font-size: 20px">&copy; 2022 Local Cholito</span>
             </div>
-    
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                <li class="ms-5"><a class="text-muted" href="#" style="font-size: 25px"><i class="bi bi-instagram" ></i></a></li>
+                <li class="ms-5"><a class="text-muted" href="#" style="font-size: 25px"><i class="bi bi-facebook" ></i></a></li>
+                <li class="ms-5 mx-5"><a class="text-muted" href="#" style="font-size: 25px"><i class="bi bi-whatsapp" ></i></a></li>
             </ul>
-        </footer>-->
-        <script src="Bootstrap/js/bootstrap.js"></script>
+        </footer>
     </body>
+    <script src="Js/validarut.js"></script>
+    <script src="Js/jquery.rut.js"></script>
+    <script src="Bootstrap/js/bootstrap.js"></script>
     <script>
-        passwdShowHide = document.querySelectorAll(".mostrarPass");
-        passwdFields = document.querySelectorAll(".passwd");
-        
+                                                                                passwdShowHide = document.querySelectorAll(".mostrarPass");
+                                                                                passwdFields = document.querySelectorAll(".passwd");
 
-        passwdShowHide.forEach(eyeIcon => {
-            eyeIcon.addEventListener("click", () => {
-                passwdFields.forEach(passwdFields => {
-                    if (passwdFields.type === "password") {
-                        passwdFields.type = "text";
-                        passwdShowHide.forEach(icon => {
-                            icon.classList.replace("bi-eye", "bi-eye-slash");
-                        })
-                    } else {
-                        passwdFields.type = "password";
-                        passwdShowHide.forEach(icon => {
-                            icon.classList.replace("bi-eye-slash", "bi-eye");
-                        })
-                    }
-                })
-            })
-        });
-        $(function () {
-            $("input#rut").rut({
-                formatOn: 'keyup',
-                minimumLength: 8, // validar largo mínimo; default: 2
-                validateOn: 'change' // si no se quiere validar, pasar null
-            });
-            var input = document.getElementById('rut');
-            input.addEventListener('input', function () {
-                if (this.value.length >= 13)
-                    this.value = this.value.slice(0, 12);
-            })
-        });
+
+                                                                                passwdShowHide.forEach(eyeIcon => {
+                                                                                    eyeIcon.addEventListener("click", () => {
+                                                                                        passwdFields.forEach(passwdFields => {
+                                                                                            if (passwdFields.type === "password") {
+                                                                                                passwdFields.type = "text";
+                                                                                                passwdShowHide.forEach(icon => {
+                                                                                                    icon.classList.replace("bi-eye", "bi-eye-slash");
+                                                                                                })
+                                                                                            } else {
+                                                                                                passwdFields.type = "password";
+                                                                                                passwdShowHide.forEach(icon => {
+                                                                                                    icon.classList.replace("bi-eye-slash", "bi-eye");
+                                                                                                })
+                                                                                            }
+                                                                                        })
+                                                                                    })
+                                                                                });
+                                                                                $(function () {
+                                                                                    $("input#rut").rut({
+                                                                                        formatOn: 'keyup',
+                                                                                        minimumLength: 8, // validar largo mínimo; default: 2
+                                                                                        validateOn: 'change' // si no se quiere validar, pasar null
+                                                                                    });
+                                                                                    var input = document.getElementById('rut');
+                                                                                    input.addEventListener('input', function () {
+                                                                                        if (this.value.length >= 13)
+                                                                                            this.value = this.value.slice(0, 12);
+                                                                                    })
+                                                                                });
     </script>
 </html>
