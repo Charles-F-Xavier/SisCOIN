@@ -76,8 +76,7 @@
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <div class="my-4">
                                                             <div class="form-floating mb-1">
-                                                                <input type="text" name="txt_rut" style="box-shadow: none;" onkeypress="if (event.keyCode < 45 || event.keyCode > 57)
-                                                                            event.returnValue = false;" onchange="javascript:return Rut(document.datosUser.txt_rut.value);" class="form-control" id="rut" placeholder="Rut">
+                                                                <input type="text" name="txt_rut" style="box-shadow: none;" onchange="javascript:return Rut(document.datosUser.txt_rut.value);" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" id="rut" placeholder="Rut">
                                                                 <label for="rut">Rut</label>
                                                             </div>
                                                         </div>
@@ -133,38 +132,38 @@
     <script src="Js/jquery.rut.js"></script>
     <script src="Bootstrap/js/bootstrap.js"></script>
     <script>
-                                                                                passwdShowHide = document.querySelectorAll(".mostrarPass");
-                                                                                passwdFields = document.querySelectorAll(".passwd");
+                                                                    passwdShowHide = document.querySelectorAll(".mostrarPass");
+                                                                    passwdFields = document.querySelectorAll(".passwd");
 
 
-                                                                                passwdShowHide.forEach(eyeIcon => {
-                                                                                    eyeIcon.addEventListener("click", () => {
-                                                                                        passwdFields.forEach(passwdFields => {
-                                                                                            if (passwdFields.type === "password") {
-                                                                                                passwdFields.type = "text";
-                                                                                                passwdShowHide.forEach(icon => {
-                                                                                                    icon.classList.replace("bi-eye", "bi-eye-slash");
-                                                                                                })
-                                                                                            } else {
-                                                                                                passwdFields.type = "password";
-                                                                                                passwdShowHide.forEach(icon => {
-                                                                                                    icon.classList.replace("bi-eye-slash", "bi-eye");
-                                                                                                })
-                                                                                            }
-                                                                                        })
+                                                                    passwdShowHide.forEach(eyeIcon => {
+                                                                        eyeIcon.addEventListener("click", () => {
+                                                                            passwdFields.forEach(passwdFields => {
+                                                                                if (passwdFields.type === "password") {
+                                                                                    passwdFields.type = "text";
+                                                                                    passwdShowHide.forEach(icon => {
+                                                                                        icon.classList.replace("bi-eye", "bi-eye-slash");
                                                                                     })
-                                                                                });
-                                                                                $(function () {
-                                                                                    $("input#rut").rut({
-                                                                                        formatOn: 'keyup',
-                                                                                        minimumLength: 8, // validar largo mínimo; default: 2
-                                                                                        validateOn: 'change' // si no se quiere validar, pasar null
-                                                                                    });
-                                                                                    var input = document.getElementById('rut');
-                                                                                    input.addEventListener('input', function () {
-                                                                                        if (this.value.length >= 13)
-                                                                                            this.value = this.value.slice(0, 12);
+                                                                                } else {
+                                                                                    passwdFields.type = "password";
+                                                                                    passwdShowHide.forEach(icon => {
+                                                                                        icon.classList.replace("bi-eye-slash", "bi-eye");
                                                                                     })
-                                                                                });
+                                                                                }
+                                                                            })
+                                                                        })
+                                                                    });
+                                                                    $(function () {
+                                                                        $("input#rut").rut({
+                                                                            formatOn: 'keyup',
+                                                                            minimumLength: 8, // validar largo mínimo; default: 2
+                                                                            validateOn: 'change' // si no se quiere validar, pasar null
+                                                                        });
+                                                                        var input = document.getElementById('rut');
+                                                                        input.addEventListener('input', function () {
+                                                                            if (this.value.length >= 13)
+                                                                                this.value = this.value.slice(0, 12);
+                                                                        })
+                                                                    });
     </script>
 </html>
