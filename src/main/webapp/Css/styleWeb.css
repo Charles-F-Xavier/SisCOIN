@@ -15,6 +15,7 @@ body{
 }
 
 
+
 .log{
     position: absolute;
     left: 50%;
@@ -22,14 +23,14 @@ body{
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
 }
+
 .btn{
-    background-color: #5b4bae;
-    border-color: #5b4bae;
+    background-color: #05b4ca;
+    border-color: #05b4ca;
 }
 .btn:hover{
-    background-color: #4c6a9f !important;
-    border-color: #4c6a9f !important;
-
+    background-color: #4756b9 !important;
+    border-color: #4756b9 !important;
 }
 .card{
     background-image: url('../Img/layered.png');
@@ -39,18 +40,56 @@ body{
     border-radius: 20px;
 }
 
+.mostrarPass{
+   color: #05b4ca !important;
+}
+
+.navbar-brand img{
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-brand{
+    margin-right: 0;
+    padding: 0em 0em;
+}
+
+.navbar.nav{
+    align-items: center;
+}
+
+.spanL{
+    font-size: 1.5rem;
+    padding: .5em .5em;
+}
+
+@media screen and (min-width : 992px){
+    .navbar-brand img{
+        width: 60px;
+        height: 60x;
+    }
+
+    .spanL{
+        font-size: 1.5rem;
+        padding: .5em .5em;
+    }
+}
+
+
+
+
 @media (max-width: 412px){
     .h2{
         color: white !important;
     }
 
-    .btn{
-        background-color: #0faecb;
-        border-color: #0faecb;
+    .botones{
+        background-color: #016fc8;
+        border-color: #016fc8;
     }
-    .btn:hover{
-        background-color: #64ccc4 !important;
-        border-color: #64ccc4 !important;
+    .botones:hover{
+        background-color: #4756b9 !important;
+        border-color: #4756b9 !important;
 
     }
 }

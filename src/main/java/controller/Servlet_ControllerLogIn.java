@@ -136,7 +136,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                         + "                        },\n"
                         + "                        willClose: () => {\n"
                         + "                              clearInterval(timerInterval)\n"
-                        + "                         window.location.href = 'MenuPrincipal.jsp';\n"
+                        + "                         window.location.href = 'Menu/MenuPrincipal.jsp';\n"
                         + "                        }\n"
                         + "                     });\n"
                         + "                   }\n"
@@ -152,7 +152,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                 out.print("<script>succes();</script>");
                 HttpSession session=request.getSession();
                 session.setAttribute("Usuario", oUsuario1);
-                session.setMaxInactiveInterval(60*60);
+                //session.setMaxInactiveInterval(1*60);
                 /*request.setAttribute("Usuario", oUsuario1);
                 request.getRequestDispatcher("MenuPrincipal.jsp").forward(request, response);*/
                 //Thread.sleep(1000);

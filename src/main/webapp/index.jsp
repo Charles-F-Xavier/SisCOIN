@@ -16,10 +16,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link rel="icon" href="Img/icon.png">
-        <link rel="stylesheet" href="Css/styleWeb.css"/>
+
 
         <script src="Js/sweetalert2.all.min.js"></script>
         <link rel="stylesheet" href="Css/sweetalert2.min.css">
+        <link rel="stylesheet" href="Css/styleWeb.css"/>
         <style>
             .correct{
                 box-shadow: none;
@@ -34,10 +35,20 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <div class="row justify-content-between">
-                    <div class="col-sm-12 col-md-6 col-lg-6">
-                        <a class="navbar-brand " href="#">Local Cholito-Abarrotes</a>
-                    </div>
+                <a class="navbar-brand d-lg-none" href="#">
+                    <img src="Img/iconBack.png" alt="No disponible" >
+                    Local Cholito
+                </a>
+                <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-none" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+
+                        <a class="navbar-brand d-none d-lg-block" href="#">
+                            <img src="Img/iconBack.png" alt="No disponible">
+                        </a>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -76,7 +87,7 @@
                                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                                         <div class="my-4">
                                                             <div class="form-floating mb-1">
-                                                                <input type="text" name="txt_rut" style="box-shadow: none;" onchange="javascript:return Rut(document.datosUser.txt_rut.value);" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" id="rut" placeholder="Rut">
+                                                                <input type="text" name="txt_rut" style="box-shadow: none;" onchange="javascript:return Rut(document.datosUser.txt_rut.value)" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 107" id="rut" placeholder="Rut">
                                                                 <label for="rut">Rut</label>
                                                             </div>
                                                         </div>
@@ -114,20 +125,17 @@
                 </div>
             </div>
         </div>
-        <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center py-3  border-top" style="background-color: white">
-            <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 lh-1">
-                    <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-                </a>
-                <span class="mb-3 mb-md-0 " style="font-size: 20px">&copy; 2022 Local Cholito</span>
-            </div>
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-5"><a class="text-muted" href="#" style="font-size: 25px"><i class="bi bi-instagram" ></i></a></li>
-                <li class="ms-5"><a class="text-muted" href="#" style="font-size: 25px"><i class="bi bi-facebook" ></i></a></li>
-                <li class="ms-5 mx-5"><a class="text-muted" href="#" style="font-size: 25px"><i class="bi bi-whatsapp" ></i></a></li>
-            </ul>
-        </footer>
     </body>
+    <nav class="navbar fixed-bottom bg-light">
+        <div class="container-fluid">
+            <span class=" mb-md-1 " style="font-size: 20px; color: #5a4bac; font-weight: bold">&copy; 2022 Local Cholito</span>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3 ms-lg-5"><a  href="#" style="font-size: 25px; color: #5a4bac"><i class="bi bi-instagram" ></i></a></li>
+                <li class="ms-3 ms-lg-5"><a  href="#" style="font-size: 25px; color: #5a4bac"><i class="bi bi-facebook" ></i></a></li>
+                <li class="ms-3 ms-lg-5 mx-2"><a  href="#" style="font-size: 25px; color: #5a4bac"><i class="bi bi-whatsapp" ></i></a></li>
+            </ul>
+        </div>
+    </nav>
     <script src="Js/validarut.js"></script>
     <script src="Js/jquery.rut.js"></script>
     <script src="Bootstrap/js/bootstrap.js"></script>

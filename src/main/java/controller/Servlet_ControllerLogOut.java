@@ -31,7 +31,69 @@ public class Servlet_ControllerLogOut extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Ingreso</title>");
+            out.println("<link rel=\"stylesheet\" href=\"Css/styleWeb.css\"/>");
+            out.println("<script src=\"Js/sweetalert2.all.min.js\"></script>");
+            out.println("<script src=\"Js/sweetalert2.min.js\"></script>");
+            out.println("<link rel=\"stylesheet\" href=\"Css/sweetalert2.min.css\">");
+            out.println("<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\" />");
+            out.println("</head>");
+            out.println("<body>");
+            
+            out.println("</body>");
+            out.print("<script>\n"
+                    + "            function succes() {\n"
+                    + "                let timerInterval\n"
+                    + "                Swal.fire({\n"
+                    + "                   timer: 1300,\n"
+                    + "                   timerProgressBar: true,\n"
+                    + "                   didOpen: () => {\n"
+                    + "                         Swal.showLoading()\n"
+                    + "                         const b = Swal.getHtmlContainer().querySelector('b')\n"
+                    + "                         timerInterval = setInterval(() => {\n"
+                    + "                             b.textContent = Swal.getTimerLeft()\n"
+                    + "                         }, 100)\n"
+                    + "                   },\n"
+                    + "                   willClose: () => {\n"
+                    + "                         clearInterval(timerInterval)\n"
+                    + "                   }\n"
+                    + "                }).then((result) => {\n"
+                    + "                   if (result.dismiss === Swal.DismissReason.timer) {\n"
+                    + "                     Swal.fire({\n"
+                    + "                        title: 'Sesión Cerrada!',\n"
+                    + "                        text: 'Volviendo al Home!',\n"
+                    + "                        icon: 'success',\n"
+                    + "                        timer: 3000,\n"
+                    + "                        timerProgressBar: true,\n"
+                    + "                        showClass: {\n"
+                    + "                             popup: 'animate__animated animate__fadeInDown'\n"
+                    + "                        },\n"
+                    + "                        didOpen: () => {\n"
+                    + "                              Swal.showLoading()\n"
+                    + "                              const b = Swal.getHtmlContainer().querySelector('b')\n"
+                    + "                              timerInterval = setInterval(() => {\n"
+                    + "                                  b.textContent = Swal.getTimerLeft()\n"
+                    + "                              }, 100)\n"
+                    + "                        },\n"
+                    + "                        willClose: () => {\n"
+                    + "                              clearInterval(timerInterval)\n"
+                    + "                         window.location.href = 'index.jsp';\n"
+                    + "                        }\n"
+                    + "                     });\n"
+                    + "                   }\n"
+                    + "                });\n"
+                    + "            }\n"
+                    + "\n"
+                    + "        </script>");
+            out.print("<script>succes();</script>");
+            out.println("</html>");
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -61,147 +123,7 @@ public class Servlet_ControllerLogOut extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Ingreso</title>");
-            out.println("<link rel=\"stylesheet\" href=\"Css/styleWeb.css\"/>");
-            out.println("<script src=\"Js/sweetalert2.all.min.js\"></script>");
-            out.println("<script src=\"Js/sweetalert2.min.js\"></script>");
-            out.println("<link rel=\"stylesheet\" href=\"Css/sweetalert2.min.css\">");
-            out.println("<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\" />");
-            out.println("</head>");
-            out.println("<body>");
 
-            //ConexionSingleton oConexionSingleton = ConexionSingleton.getIntance();
-
-            String rut, passw;
-
-            rut = request.getParameter("txt_rut");
-            passw = request.getParameter("txt_pass");
-
-            out.println(rut + " " + passw + "<br>");
-
-            /*Usuario oUsuario = new Usuario();
-
-            oUsuario.setRut(rut);
-            oUsuario.setClave(passw);
-
-            DAO oDao = new DAO(oConexionSingleton);
-
-            Usuario oUsuario1 = oDao.isExist(oUsuario);*/
-
-            out.println("</body>");
-
-            /*if (oUsuario1 != null) {
-                out.print("<script>\n"
-                        + "            function succes() {\n"
-                        + "                let timerInterval\n"
-                        + "                Swal.fire({\n"
-                        + "                   timer: 1300,\n"
-                        + "                   timerProgressBar: true,\n"
-                        + "                   didOpen: () => {\n"
-                        + "                         Swal.showLoading()\n"
-                        + "                         const b = Swal.getHtmlContainer().querySelector('b')\n"
-                        + "                         timerInterval = setInterval(() => {\n"
-                        + "                             b.textContent = Swal.getTimerLeft()\n"
-                        + "                         }, 100)\n"
-                        + "                   },\n"
-                        + "                   willClose: () => {\n"
-                        + "                         clearInterval(timerInterval)\n"
-                        + "                   }\n"
-                        + "                }).then((result) => {\n"
-                        + "                   if (result.dismiss === Swal.DismissReason.timer) {\n"
-                        + "                     Swal.fire({\n"
-                        + "                        title: 'Bienvenid@ " + oUsuario1.getNombre() + "!',\n"
-                        + "                        text: 'Ingresando al menu principal!',\n"
-                        + "                        icon: 'success',\n"
-                        + "                        timer: 3000,\n"
-                        + "                        timerProgressBar: true,\n"
-                        + "                        showClass: {\n"
-                        + "                             popup: 'animate__animated animate__fadeInDown'\n"
-                        + "                        },\n"
-                        + "                        didOpen: () => {\n"
-                        + "                              Swal.showLoading()\n"
-                        + "                              const b = Swal.getHtmlContainer().querySelector('b')\n"
-                        + "                              timerInterval = setInterval(() => {\n"
-                        + "                                  b.textContent = Swal.getTimerLeft()\n"
-                        + "                              }, 100)\n"
-                        + "                        },\n"
-                        + "                        willClose: () => {\n"
-                        + "                              clearInterval(timerInterval)\n"
-                        + "                         window.location.href = 'MenuPrincipal.jsp';\n"
-                        + "                        }\n"
-                        + "                     });\n"
-                        + "                   }\n"
-                        + "                });\n"
-                        + "            }\n"
-                        + "\n"
-                        + "        </script>");
-                out.println("Hola " + oUsuario1.getNombre());
-                /*out.println("<script type=\"text/javascript\">");
-                out.println("alert('User or password incorrect');");
-                out.println("succes();");
-                out.println("</script>");*/
-                /*out.print("<script>succes();</script>");
-                HttpSession session=request.getSession();
-                session.setAttribute("Usuario", oUsuario1);
-                session.setMaxInactiveInterval(60*60);*/
-                /*request.setAttribute("Usuario", oUsuario1);
-                request.getRequestDispatcher("MenuPrincipal.jsp").forward(request, response);*/
-                //Thread.sleep(1000);
-
-            /*} else {
-                out.print("<script>\n"
-                        + "            function error() {\n"
-                        + "                let timerInterval\n"
-                        + "                Swal.fire({\n"
-                        + "                   timer: 1300,\n"
-                        + "                   timerProgressBar: true,\n"
-                        + "                   didOpen: () => {\n"
-                        + "                         Swal.showLoading()\n"
-                        + "                         const b = Swal.getHtmlContainer().querySelector('b')\n"
-                        + "                         timerInterval = setInterval(() => {\n"
-                        + "                             b.textContent = Swal.getTimerLeft()\n"
-                        + "                         }, 100)\n"
-                        + "                   },\n"
-                        + "                   willClose: () => {\n"
-                        + "                         clearInterval(timerInterval)\n"
-                        + "                   }\n"
-                        + "                }).then((result) => {\n"
-                        + "                   if (result.dismiss === Swal.DismissReason.timer) {\n"
-                        + "                     Swal.fire({\n"
-                        + "                        title: 'Alto!',\n"
-                        + "                        text: 'Usuario con el Rut: " + oUsuario.getRut() + " no se encuentra! Verificar credenciales',\n"
-                        + "                        icon: 'error',\n"
-                        + "                        timer: 5000,\n"
-                        + "                        timerProgressBar: true,\n"
-                        + "                        didOpen: () => {\n"
-                        + "                              Swal.showLoading()\n"
-                        + "                              const b = Swal.getHtmlContainer().querySelector('b')\n"
-                        + "                              timerInterval = setInterval(() => {\n"
-                        + "                                  b.textContent = Swal.getTimerLeft()\n"
-                        + "                              }, 100)\n"
-                        + "                        },\n"
-                        + "                        willClose: () => {\n"
-                        + "                              clearInterval(timerInterval)\n"
-                        + "                         window.location.href = 'index.jsp';\n"
-                        + "                        }\n"
-                        + "                     });\n"
-                        + "                   }\n"
-                        + "                });\n"
-                        + "            }\n"
-                        + "\n"
-                        + "        </script>");
-                out.println("Hola ");
-                out.print("<script>error();</script>");
-                out.println("No eres ingeniero");
-            }*/
-
-            out.println("</html>");
-        }
     }
 
     /**
