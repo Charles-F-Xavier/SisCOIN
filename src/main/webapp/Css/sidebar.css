@@ -4,10 +4,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 body{
-    overflow: hidden;
+    overflow: overlay;
+    background-color: #e4e9f7 !important;
 }
 .sidebar{
     position: fixed;
@@ -19,7 +20,19 @@ body{
     z-index: 100;
     transition: all 0.5s ease;
 }
+.navbar-brand img{
+    width: 60px;
+    height: 60px;
+}
 
+.navbar-brand{
+    margin-right: 0;
+    padding: 0em 0em;
+}
+
+.navbar.nav{
+    align-items: center;
+}
 .sidebar.close{
     width: 88px;
 }
@@ -92,7 +105,7 @@ body{
 .sidebar .nav-links li{
     position: relative;
     list-style: none;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
 }
 .sidebar .nav-links li:hover{
     background: #1d1b31;
@@ -113,7 +126,8 @@ body{
     color: #fff;
     font-size: 25px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 2.5s ease 3s !important;
+    z-index: 2;
 }
 .sidebar .nav-links li.showMenu i.arrow{
     transform: rotate(-180deg);
@@ -135,7 +149,7 @@ body{
     font-size: 18px;
     font-weight: 400;
     color: #fff;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
 }
 .sidebar.close .nav-links li a .link_name{
     opacity: 0;
@@ -156,7 +170,7 @@ body{
     padding: 5px 0;
     white-space: nowrap;
     opacity: 0.6;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 .sidebar .nav-links li .sub-menu a:hover{
     opacity: 1;
@@ -231,7 +245,7 @@ body{
     display: block;
     font-size: 30px;
     background-color:#1d1b31;
-        
+
 }
 .sidebar.close .profile-details i,
 .sidebar.close .profile-details .profile_name,
@@ -244,12 +258,39 @@ body{
 .home-section{
     position: relative;
     background: #E4E9F7;
-    height: 100vh;
+    min-height: calc(100vh - 60px - 98px);
     left: 350px;
     width: calc(100% - 350px);
     transition: all 0.5s ease;
 }
+.principal{
+    height: auto;
+    position: relative;
+    *padding-bottom: 3em;
+}
+
+.footer{
+    background-color: #5a4bac;
+    padding: 1em 0;
+    position: relative;
+    height: 74px;
+    left: 350px;
+    width: calc(100% - 350px);
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+
+.sidebar ~ .footer{
+    left: 350px;
+    width: calc(100% - 350px);
+}
+.sidebar.close ~ .footer{
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
 .navbar{
+    z-index:1;
     background-color: #5a4bac !important;
 }
 
@@ -262,6 +303,8 @@ body{
     align-items: center;
     flex-wrap: wrap;
 }
+
+
 .home-section .home-content .bx-menu,
 .home-section .home-content .text{
     color: #11101d;
@@ -276,29 +319,46 @@ body{
     font-weight: 600;
 }
 
-.fixed-bottom{
-    position: absolute;
-    height: 74px;
-}
+
 
 @media screen and (max-width: 1024px){
     .sidebar{
         display: none !important;
         width: 350px;
     }
-    
+
     .sidebar.close{
         display: none !important;
         width: 88px;
     }
-    
+
     .sidebar ~ .home-section{
         left: 0;
         width: 100%;
     }
-    
+
     .sidebar.close ~ .home-section{
         left: 0;
         width: 100%;
+    }
+
+    .footer{
+        height: 100px;
+    }
+    .sidebar ~ .footer{
+        left: 0;
+        width: 100%;
+    }
+
+    .sidebar.close ~ .footer{
+        left: 0;
+        width: 100%;
+    }
+    .justify-content-between {
+        justify-content: center!important;
+    }
+
+    .justify-content-end {
+        justify-content: center!important;
     }
 }

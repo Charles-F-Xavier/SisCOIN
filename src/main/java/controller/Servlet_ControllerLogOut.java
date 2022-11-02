@@ -38,6 +38,7 @@ public class Servlet_ControllerLogOut extends HttpServlet {
             out.println("<head>");
             out.println("<title>Ingreso</title>");
             out.println("<link rel=\"stylesheet\" href=\"Css/styleWeb.css\"/>");
+            out.println("<link rel=\"stylesheet\" href=\"Css/styleUniversal.css\"/>");
             out.println("<script src=\"Js/sweetalert2.all.min.js\"></script>");
             out.println("<script src=\"Js/sweetalert2.min.js\"></script>");
             out.println("<link rel=\"stylesheet\" href=\"Css/sweetalert2.min.css\">");

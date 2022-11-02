@@ -21,6 +21,7 @@
         <script src="Js/sweetalert2.all.min.js"></script>
         <link rel="stylesheet" href="Css/sweetalert2.min.css">
         <link rel="stylesheet" href="Css/styleWeb.css"/>
+        <link rel="stylesheet" href="Css/styleUniversal.css"/>
         <style>
             .correct{
                 box-shadow: none;
@@ -30,6 +31,13 @@
                 box-shadow: none;
                 border: 2px solid green;
             }
+            .card{
+                background-image: url('Img/layered.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                border: none;
+                border-radius: 20px;
+            }
         </style>
     </head>
     <body>
@@ -37,16 +45,17 @@
             <div class="container-fluid">
                 <a class="navbar-brand d-lg-none" href="#">
                     <img src="Img/iconBack.png" alt="No disponible" >
-                    Local Cholito
+                    LOCAL CHOLITO-SisCOIN
                 </a>
                 <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse d-none" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
-
                         <a class="navbar-brand d-none d-lg-block" href="#">
+                            LOCAL CHOLITO
                             <img src="Img/iconBack.png" alt="No disponible">
+                            SiscCOIN
                         </a>
                     </ul>
                 </div>

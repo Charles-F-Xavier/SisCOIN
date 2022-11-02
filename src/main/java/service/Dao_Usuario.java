@@ -28,7 +28,7 @@ public class Dao_Usuario implements Crud<Usuario>{
 
     @Override
     public void insert(Usuario obj) {
-        String sql = "INSERT INTO usuario VALUES('"+obj.getId_user()+"','" + obj.getRut() + "','" + obj.getNombre() + "','" + obj.getApellido() + "')";
+        String sql = "INSERT INTO usuario VALUES('"+obj.getId_user()+"','" + obj.getCorreo() + "','" + obj.getTelefono() + "',sha2('" + obj.getClave() + "',0), '"+obj.getCargo()+"', '"+obj.getArea()+"')";
         try {
             oConexion.getConnection().createStatement().execute(sql);
         } catch (SQLException ex) {
@@ -52,7 +52,7 @@ public class Dao_Usuario implements Crud<Usuario>{
         try {
             ResultSet oResultSet=oConexion.getConnection().createStatement().executeQuery(sql);
             if (oResultSet.next()) {
-                return new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user"));
+                return new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user"), oResultSet.getInt("cargo"), oResultSet.getInt("area"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dao_Usuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,7 +65,7 @@ public class Dao_Usuario implements Crud<Usuario>{
         try {
             ResultSet oResultSet=oConexion.getConnection().createStatement().executeQuery(sql);
             if (oResultSet.next()) {
-                return new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user"), oResultSet.getInt("id"),oResultSet.getString("rut"), oResultSet.getString("nombre"),oResultSet.getString("apellido"));
+                return new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user"),oResultSet.getInt("cargo"), oResultSet.getInt("area"), oResultSet.getInt("id"),oResultSet.getString("rut"), oResultSet.getString("nombre"),oResultSet.getString("apellido"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dao_Usuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -85,13 +85,15 @@ public class Dao_Usuario implements Crud<Usuario>{
 
     @Override
     public List<Usuario> getAll() {
-        String sql = "SELECT * FROM usuario";
+        String sql = "SELECT * FROM persona_entidad INNER JOIN usuario ON usuario.id=persona_entidad.id;";
         List<Usuario> oList=new ArrayList<>();
         
         try {
             ResultSet oResultSet=oConexion.getConnection().createStatement().executeQuery(sql);
             while (oResultSet.next()) {                
-                oList.add(new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user")));
+                oList.add(new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), 
+                        oResultSet.getInt("tipo_user"),oResultSet.getInt("cargo"), oResultSet.getInt("area"),oResultSet.getInt("id"),oResultSet.getString("rut"),
+                        oResultSet.getString("nombre"),oResultSet.getString("apellido")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dao_Usuario.class.getName()).log(Level.SEVERE, null, ex);

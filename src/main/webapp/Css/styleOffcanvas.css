@@ -1,0 +1,101 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 01-11-2022, 20:52:07
+    Author     : jr972
+*/
+
+
+.offcanvas-body .logo-details{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.offcanvas-body .nav-links li{
+    position: relative;
+    list-style: none;
+    transition: all 0.5s ease;
+}
+
+.offcanvas-body .nav-links li .iocn-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.offcanvas-body .nav-links li i{
+    height: 50px;
+    min-width: 88px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.offcanvas-body .nav-links li a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.offcanvas-body .nav-links li a .link_name{
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+.offcanvas-body .logo-details i{
+    font-size: 40px;
+    color: #fff;
+    height: 50px;
+    min-width: 70px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.offcanvas-body .logo-details .logo_name{
+    font-size: 22px;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
+}
+
+.offcanvas-body .nav-links{
+    height: 100%;
+    padding: 30px 0 150px 0;
+}
+
+
+
+.offcanvas-body .profile-details{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1d1b31;
+    padding: 12px 0;
+    transition: all 0.5s ease;
+}
+
+.offcanvas-body .profile-details .profile-content{
+    display: flex;
+    align-items: center;
+}
+
+.offcanvas-body .profile-details .profile_name,
+.offcanvas-body .profile-details .job{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+}

@@ -25,7 +25,8 @@ public class DAO {
         try {
             ResultSet oResultSet = oCon.getConnection().createStatement().executeQuery(sql);
             if(oResultSet.next()){
-                return new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user"),
+                return new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user"), 
+                        oResultSet.getInt("cargo"), oResultSet.getInt("area"),
                         oResultSet.getInt("id"),oResultSet.getString("rut"), oResultSet.getString("nombre"),oResultSet.getString("apellido"));
             }
         } catch (SQLException e) {

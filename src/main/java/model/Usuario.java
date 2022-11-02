@@ -15,25 +15,31 @@ public class Usuario extends Persona{
     private int telefono;
     private String clave;
     private int tipo_user;
+    private int cargo;
+    private int area;
 
     public Usuario() {
     }
 
-    public Usuario(int id_user, String correo, int telefono, String clave, int tipo_user) {
+    public Usuario(int id_user, String correo, int telefono, String clave, int tipo_user, int cargo, int area) {
         this.id_user = id_user;
         this.correo = correo;
         this.telefono = telefono;
         this.clave = clave;
         this.tipo_user = tipo_user;
+        this.cargo = cargo;
+        this.area = area;
     }
 
-    public Usuario(int id_user, String correo, int telefono, String clave, int tipo_user, int id, String rut, String nombre, String apellido) {
+    public Usuario(int id_user, String correo, int telefono, String clave, int tipo_user, int cargo, int area, int id, String rut, String nombre, String apellido) {
         super(id, rut, nombre, apellido);
         this.id_user = id_user;
         this.correo = correo;
         this.telefono = telefono;
         this.clave = clave;
         this.tipo_user = tipo_user;
+        this.cargo = cargo;
+        this.area = area;
     }
 
     public int getId_user() {
@@ -76,10 +82,28 @@ public class Usuario extends Persona{
         this.tipo_user = tipo_user;
     }
 
+    public int getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(int cargo) {
+        this.cargo = cargo;
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id_user=" + id_user + ", correo=" + correo + ", telefono=" + telefono + ", clave=" + clave + ", tipo_user=" + tipo_user + '}';
+        return "Usuario{" + "id_user=" + id_user + ", correo=" + correo + ", telefono=" + telefono + ", clave=" + clave + ", tipo_user=" + tipo_user + ", cargo=" + cargo + ", area=" + area + '}';
     }
+
+    
     
     
     

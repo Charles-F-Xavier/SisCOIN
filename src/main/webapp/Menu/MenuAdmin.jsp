@@ -4,7 +4,22 @@
     Author     : jr972
 --%>
 
+<%@page import="model.Usuario"%>
+<%@page import="model.Tipo_User"%>
+<%@page import="service.Dao_TipoUser"%>
+<%@page import="db.ConexionSingleton"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Usuario oUsuario = (Usuario) session.getAttribute("Usuario");
+    //out.print(oUsuario);
+    /*int timer = session.getMaxInactiveInterval();
+    HttpSession oHttpSession=request.getSession();
+
+    out.println(timer);
+    if (timer == 1800) {
+        out.println("Cago session");
+    }*/
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,13 +27,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <title>Menu Pincipal</title>
-        <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../Bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="icon" href="Img/icon.png">
-        <link rel="stylesheet" href="Css/styleWeb.css"/>
-        <link href="Css/sidebar.css" rel="stylesheet">
+        <link rel="icon" href="../Img/icon.png">
+        <link rel="stylesheet" href="../Css/styleWeb.css"/>
+        <link href="../Css/sidebar.css" rel="stylesheet">
+        <link rel="stylesheet" href="../Css/datatables.min.css">
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -44,7 +60,7 @@
         <div class="d-flex flex-column flex-shrink-0 sidebar close">
             <header>
                 <div class="logo-details">
-                    <img class="p-2" src="Img/iconBack.png" width="50" height="50">
+                    <img class="p-2" src="../Img/iconBack.png" width="50" height="50">
                     <span class="logo_name text-white">SisCOIN</span>
                 </div>
                 <i class="bi bi-caret-right-fill toggle"></i>
@@ -73,21 +89,6 @@
                         <!--<li><a href="#">Reportes</a></li>
                         <li><a href="#">Ingresar reporte</a></li>
                         <li><a href="#">PHP & MySQL</a></li>-->
-                    </ul>
-                </li>
-                <li>
-                    <div class="iocn-link">
-                        <a href="#">
-                            <i class='bx bx-data'></i>
-                            <span class="link_name">Base de datos</span>
-                        </a>
-                        <!--<i class='bx bxs-chevron-down arrow' ></i>-->
-                    </div>
-                    <ul class="sub-menu">
-                        <li><a class="link_name" href="#">Base de datos</a></li>
-                        <!--<li><a href="#">Web Design</a></li>
-                        <li><a href="#">Login Form</a></li>
-                        <li><a href="#">Card Design</a></li>-->
                     </ul>
                 </li>
                 <li>
@@ -159,7 +160,7 @@
                             <div class="profile_name"><% out.print(oUsuario.getNombre()); %></div>
                             <div class="job"><% out.print(oTipo_User.getDetalle()); %></div>
                         </div>
-                        <a href="ControllerLogOut.do"><i class='bx bx-log-out perfil'></i></a>
+                        <a href="../ControllerLogOut.do"><i class='bx bx-log-out perfil'></i></a>
                     </div>
                 </li>
             </ul>
@@ -170,7 +171,7 @@
                     <div class="d-lg-block d-none" style="padding-left: 40%">
                         <a class="navbar-brand" href="#">
                             <span class="text-white">Local Cholito</span>
-                            <img src="Img/iconBack.png" alt="No disponible">
+                            <img src="../Img/iconBack.png" alt="No disponible">
                         </a>
                     </div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -178,7 +179,7 @@
                     </button>
                     <div class="d-lg-none d-md-block d-block m-1">
                         <a class="navbar-brand" href="#">
-                            <img src="Img/iconBack.png" alt="No disponible" width="30" height="30">
+                            <img src="../Img/iconBack.png" alt="No disponible" width="30" height="30">
                             <span class="text-white">Local Cholito</span>
                         </a>
                     </div>
@@ -189,9 +190,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="#">Reportes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="#">Base de datos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="#">Estadisticas</a>
@@ -231,7 +229,7 @@
                             </button>
                         </div>
                         <div class="d-lg-none d-block m-1">
-                            <a class="btn btn-primary" href="ControllerLogOut.do"><i class='bx bx-log-out perfil'></i><span>Cerrar Sesión</span></a>
+                            <a class="btn btn-primary" href="../ControllerLogOut.do"><i class='bx bx-log-out perfil'></i><span>Cerrar Sesión</span></a>
 
                         </div>
                     </div>
@@ -257,15 +255,20 @@
         </section>
     </body>
 
-    <script src="Js/sidebar.js"></script>
-    <script src="Js/sidebarMove.js"></script>
-
-    <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../Js/sidebar.js"></script>
+    <script src="../Js/sidebarMove.js"></script>
+    <script src="../Js/datatables.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
+        $('document').ready(function () {
+            $('#example').DataTable({
+                'responsive': true
+            });
+        });
         /*const body = document.querySelector('body');
          body.onmousemove = function () {
          <%
-            //session.setMaxInactiveInterval(6*60);
+             //session.setMaxInactiveInterval(6*60);
 
         %>
          var x=<%=session.getMaxInactiveInterval()%>;

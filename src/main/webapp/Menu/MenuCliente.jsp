@@ -37,9 +37,9 @@
     </head>
     <body>
         <%
-            ConexionSingleton oConexionSingleton = ConexionSingleton.getIntance();
+            /*ConexionSingleton oConexionSingleton = ConexionSingleton.getIntance();
             Dao_TipoUser oDao_TipoUser = new Dao_TipoUser(oConexionSingleton);
-            Tipo_User oTipo_User = oDao_TipoUser.get(oUsuario.getTipo_user());
+            Tipo_User oTipo_User = oDao_TipoUser.get(oUsuario.getTipo_user());*/
         %>
         <div class="d-flex flex-column flex-shrink-0 sidebar close">
             <header>
@@ -156,7 +156,7 @@
                             <i class='bx bx-user-circle'></i>
                         </div>
                         <div class="name-job">
-                            <div class="profile_name"><% out.print(oUsuario.getNombre()); %></div>
+                            <div class="profile_name"><% //out.print(oUsuario.getNombre()); %></div>
                             <div class="job"><% out.print(oTipo_User.getDetalle()); %></div>
                         </div>
                         <a href="ControllerLogOut.do"><i class='bx bx-log-out perfil'></i></a>

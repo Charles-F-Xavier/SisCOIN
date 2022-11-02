@@ -72,6 +72,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
             out.println("<head>");
             out.println("<title>Ingreso</title>");
             out.println("<link rel=\"stylesheet\" href=\"Css/styleWeb.css\"/>");
+            out.println("<link rel=\"stylesheet\" href=\"Css/styleUniversal.css\"/>");
             out.println("<script src=\"Js/sweetalert2.all.min.js\"></script>");
             out.println("<script src=\"Js/sweetalert2.min.js\"></script>");
             out.println("<link rel=\"stylesheet\" href=\"Css/sweetalert2.min.css\">");
@@ -87,7 +88,6 @@ public class Servlet_ControllerLogIn extends HttpServlet {
             passw = request.getParameter("txt_pass");
 
             //out.println(rut + " " + passw + "<br>");
-
             Usuario oUsuario = new Usuario();
 
             oUsuario.setRut(rut);
@@ -98,8 +98,20 @@ public class Servlet_ControllerLogIn extends HttpServlet {
             Usuario oUsuario1 = oDao.isExist(oUsuario);
 
             out.println("</body>");
+            String redireccion="";
 
             if (oUsuario1 != null) {
+                if (oUsuario1.getTipo_user()==1) {
+                    if (oUsuario1.getArea()==5 && oUsuario1.getCargo()==1) {
+                        redireccion="Menu/MenuPrincipal.jsp";
+                    }
+                }else if (oUsuario1.getTipo_user()==2) {
+                    if (oUsuario1.getArea()==4 && oUsuario1.getCargo()==1) {
+                        redireccion="Menu/MenuAdmin.jsp";
+                    }else if (oUsuario1.getArea()==3 && oUsuario1.getCargo()==2) {
+                        redireccion="Menu/MenuUser.jsp";
+                    }
+                }
                 out.print("<script>\n"
                         + "            function succes() {\n"
                         + "                let timerInterval\n"
@@ -136,7 +148,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                         + "                        },\n"
                         + "                        willClose: () => {\n"
                         + "                              clearInterval(timerInterval)\n"
-                        + "                         window.location.href = 'Menu/MenuPrincipal.jsp';\n"
+                        + "                         window.location.href = '"+redireccion+"';\n"
                         + "                        }\n"
                         + "                     });\n"
                         + "                   }\n"
@@ -150,7 +162,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                 out.println("succes();");
                 out.println("</script>");*/
                 out.print("<script>succes();</script>");
-                HttpSession session=request.getSession();
+                HttpSession session = request.getSession();
                 session.setAttribute("Usuario", oUsuario1);
                 //session.setMaxInactiveInterval(1*60);
                 /*request.setAttribute("Usuario", oUsuario1);
