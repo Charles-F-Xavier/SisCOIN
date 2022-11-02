@@ -92,15 +92,15 @@
                         <li><a href="#">Card Design</a></li>-->
                     </ul>
                 </li>
-                <!--<li>
-                    <a href="#">
-                        <i class='bx bx-pie-chart-alt-2' ></i>
-                        <span class="link_name">Estadisticas</span>
+                <li>
+                    <a href="SuperAdmin/Productos.jsp">
+                        <i class='bx bx-purchase-tag'></i>
+                        <span class="link_name">Productos</span>
                     </a>
                     <ul class="sub-menu blank">
-                        <li><a class="link_name" href="#">Estadisticas</a></li>
+                        <li><a class="link_name" href="SuperAdmin/Productos.jsp">Productos</a></li>
                     </ul>
-                </li>-->
+                </li>
                 <li>
                     <a href="SuperAdmin/Ofertas.jsp">
                         <i class='bx bxs-offer'></i>
@@ -112,14 +112,14 @@
                 </li>
                 <li>
                     <div class="iocn-link">
-                        <a href="#">
+                        <a href="SuperAdmin/Pedidos.jsp">
                             <i class='bx bx-package'></i>
                             <span class="link_name">Pedidos</span>
                         </a>
                         <!--<i class='bx bxs-chevron-down arrow' ></i>-->
                     </div>
                     <ul class="sub-menu">
-                        <li><a class="link_name" href="#">Pedidos</a></li>
+                        <li><a class="link_name" href="SuperAdmin/Pedidos.jsp">Pedidos</a></li>
                         <!--<li><a href="#">UI Face</a></li>
                         <li><a href="#">Pigments</a></li>
                         <li><a href="#">Box Icons</a></li>-->
@@ -127,14 +127,14 @@
                 </li>
                 <li>
                     <div class="iocn-link">
-                        <a href="#">
+                        <a href="SuperAdmin/Agenda.jsp">
                             <i class='bx bx-calendar-check'></i>
                             <span class="link_name">Agenda</span>
                         </a>
                         <!--<i class='bx bxs-chevron-down arrow' ></i>-->
                     </div>
                     <ul class="sub-menu">
-                        <li><a class="link_name" href="#">Agenda</a></li>
+                        <li><a class="link_name" href="SuperAdmin/Agenda.jsp">Agenda</a></li>
                         <!--<li><a href="#">UI Face</a></li>
                         <li><a href="#">Pigments</a></li>
                         <li><a href="#">Box Icons</a></li>-->
@@ -220,13 +220,19 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Productos.jsp">
+                                    <i class='bx bx-purchase-tag'></i>
+                                    <span class="link_name">Productos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Ofertas.jsp">
                                     <i class='bx bxs-offer'></i>
                                     <span class="link_name">Ofertas</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Agenda.jsp">
                                     <i class='bx bx-calendar-check'></i>
                                     <span class="link_name">Agenda</span>
                                 </a>
@@ -244,7 +250,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Pedidos.jsp">
                                     <i class='bx bx-bell' ></i>
                                     <span class="link_name">Pedidos</span>
                                 </a>

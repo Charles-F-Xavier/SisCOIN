@@ -1,16 +1,15 @@
 <%-- 
-    Document   : Ofertas
-    Created on : 02-11-2022, 12:33:03
+    Document   : Pedidos
+    Created on : 02-11-2022, 14:50:29
     Author     : jr972
 --%>
 
-<%@page import="model.Tipo_User"%>
 <%@page import="service.Dao_TipoUser"%>
 <%@page import="db.ConexionSingleton"%>
+<%@page import="model.Tipo_User"%>
 <%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-
     Usuario oUsuario = (Usuario) session.getAttribute("Usuario");
     //out.print(oUsuario);
     /*int timer = session.getMaxInactiveInterval();
@@ -33,8 +32,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <link rel="icon" href="../../Img/icon.png">
+        <link rel="stylesheet" href="../../Css/styleWeb.css"/>
         <link href="../../Css/sidebar.css" rel="stylesheet">
-        <link href="../../Css/styleWeb.css" rel="stylesheet">
         <link href="../../Css/styleOffcanvas.css" rel="stylesheet">
         <link rel="stylesheet" href="../../Css/datatables.min.css"/>
         <style>
@@ -80,21 +79,6 @@
                 </li>
                 <li>
                     <div class="iocn-link">
-                        <a href="#">
-                            <i class='bx bx-collection' ></i>
-                            <span class="link_name">Reportes</span>
-                        </a>
-                        <!--<i class='bx bxs-chevron-down arrow' ></i>-->
-                    </div>
-                    <ul class="sub-menu">
-                        <li><a class="link_name" href="#">Reportes</a></li>
-                        <!--<li><a href="#">Reportes</a></li>
-                        <li><a href="#">Ingresar reporte</a></li>
-                        <li><a href="#">PHP & MySQL</a></li>-->
-                    </ul>
-                </li>
-                <li>
-                    <div class="iocn-link">
                         <a href="BaseDeDatos.jsp">
                             <i class='bx bx-data'></i>
                             <span class="link_name">Base de datos</span>
@@ -110,11 +94,20 @@
                 </li>
                 <li>
                     <a href="#">
+                        <i class='bx bx-purchase-tag'></i>
+                        <span class="link_name">Productos</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Productos</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="Ofertas.jsp">
                         <i class='bx bxs-offer'></i>
                         <span class="link_name">Ofertas</span>
                     </a>
                     <ul class="sub-menu blank">
-                        <li><a class="link_name" href="#">Ofertas</a></li>
+                        <li><a class="link_name" href="Ofertas.jsp">Ofertas</a></li>
                     </ul>
                 </li>
                 <li>
@@ -133,12 +126,27 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-calendar-check'></i>
+                            <span class="link_name">Agenda</span>
+                        </a>
+                        <!--<i class='bx bxs-chevron-down arrow' ></i>-->
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Agenda</a></li>
+                        <!--<li><a href="#">UI Face</a></li>
+                        <li><a href="#">Pigments</a></li>
+                        <li><a href="#">Box Icons</a></li>-->
+                    </ul>
+                </li>
+                <li>
+                    <a href="Usuarios.jsp">
                         <i class='bx bx-user'></i>
                         <span class="link_name">Usuarios</span>
                     </a>
                     <ul class="sub-menu blank">
-                        <li><a class="link_name" href="#">Usuarios</a></li>
+                        <li><a class="link_name" href="Usuarios.jsp">Usuarios</a></li>
                     </ul>
                 </li>
                 <li>
@@ -200,31 +208,37 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">
-                                    <i class='bx bx-collection' ></i>
-                                    <span class="link_name">Reportes</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="BaseDeDatos.jsp">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/BaseDeDatos.jsp">
                                     <i class='bx bx-data'></i>
                                     <span class="link_name">Base de datos</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="#">
+                                    <i class='bx bx-pie-chart-alt-2' ></i>
+                                    <span class="link_name">Estadisticas</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="#">
+                                    <i class='bx bx-purchase-tag'></i>
+                                    <span class="link_name">Productos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Ofertas.jsp">
                                     <i class='bx bxs-offer'></i>
                                     <span class="link_name">Ofertas</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active text-white" aria-current="page" href="#">
-                                    <i class='bx bx-package'></i>
-                                    <span class="link_name">Pedidos</span>
+                                    <i class='bx bx-calendar-check'></i>
+                                    <span class="link_name">Agenda</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Usuarios.jsp">
                                     <i class='bx bx-user'></i>
                                     <span class="link_name">Usuarios</span>
                                 </a>
@@ -271,44 +285,11 @@
         </nav>
         <section class="home-section principal">
             <div class="container-fluid principal mt-2 ">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="modal fade" id="modalAgregar" style="z-index: 1500" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Oferta</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
-                                                    <input type="text" class="form-control" placeholder="Trapeador" aria-label="Trapeador" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                                <div class="d-grid gap-2">
-                                                    <button class="btn btn-primary" type="button">Buscar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary">Registrar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row justify-content-end">
                     <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
                         <div class="card">
                             <div class="card-header text-white" style="background-color: #5a4bac">
-                                <h3>Ofertas Habilitadas</h3>
+                                <h3>Pedidos</h3>
                             </div>
                             <div class="card-body">
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -317,10 +298,10 @@
                                             <th>#</th>
                                             <th>Nombre</th>
                                             <th>Descripción</th>
-                                            <th>Precio Actual</th>
-                                            <th>Precio Oferta</th>
+                                            <th>Precio</th>
                                             <th>Stock</th>
                                             <th>Categoria</th>
+                                            <th>Proveedor</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -331,10 +312,10 @@
                                             <th>#</th>
                                             <th>Nombre</th>
                                             <th>Descripción</th>
-                                            <th>Precio Actual</th>
-                                            <th>Precio Oferta</th>
+                                            <th>Precio</th>
                                             <th>Stock</th>
                                             <th>Categoria</th>
+                                            <th>Proveedor</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -342,12 +323,11 @@
                         </div>
                     </div>
                     <div class="col-sm-10 col-md-1 col-lg-1 col-xl-1 align-self-end m-2 d-grid gap-2 d-sm-flex d-md-flex d-lg-flex justify-content-sm-end justify-content-md-center justify-content-lg-center">
-                        <button type="button" class="btn btn-secondary" style="border-radius: 50%; font-size: 25px" data-bs-toggle="modal" data-bs-target="#modalAgregar">
+                        <button type="button" class="btn btn-secondary" style="border-radius: 50%; font-size: 25px" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
                             <i class='bx bx-plus' ></i>
                         </button>
                     </div>
                 </div>
-
             </div>
         </section>
         <section class="footer">

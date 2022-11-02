@@ -339,7 +339,7 @@
                             <div class="card-header text-white" style="background-color: #5a4bac">
                                 <div class="row">
                                     <div class="col-sm-11 col-md-11 col-lg-11">
-                                        <h3>Tipos de Usuario</h3>
+                                        <h3>Areas</h3>
                                     </div>
                                     <div class="col-sm-1 col-md-1 col-lg-1">
                                         <button type="button" class="btn btn-secondary" style="border-radius: 50%; font-size: 25px" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
