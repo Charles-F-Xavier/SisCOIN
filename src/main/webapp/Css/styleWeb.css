@@ -7,7 +7,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : jr972
 */
 
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
 
 
@@ -19,21 +24,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -webkit-transform: translate(-50%, -50%);
 }
 
-.btn{
+.btn-primary{
     background-color: #05b4ca;
     border-color: #05b4ca;
 }
-.btn:hover{
-    background-color: #4756b9 !important;
-    border-color: #4756b9 !important;
+.btn-primary:hover{
+    background-color: #0abbd1 !important;
 }
-
+.cardIndex{
+    background-image: url('../Img/layered.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    border-radius: 20px;
+}
 
 .mostrarPass{
    color: #05b4ca !important;
 }
 
+.navbar-brand img{
+    width: 60px;
+    height: 60px;
+}
 
+.navbar-brand{
+    margin-right: 0;
+    padding: 0em 0em;
+}
+
+.navbar.nav{
+    align-items: center;
+}
 
 .spanL{
     font-size: 1.5rem;
@@ -53,9 +75,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 
+@media screen and (max-height: 780px){
+    .logoCard{
+        height: 300px;
+        width: 300px;
+        transition: all 2s ease;
+    }
+}
 
-
-@media (max-width: 1199px){
+@media (max-width: 990px){
     .h2{
         color: white !important;
     }

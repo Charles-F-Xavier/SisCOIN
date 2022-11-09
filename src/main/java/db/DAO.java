@@ -6,6 +6,11 @@ package db;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Pedido;
 import model.Usuario;
 
 /**
@@ -20,7 +25,7 @@ public class DAO {
         this.oCon = oCon;
     }
 
-    public Usuario isExist(Usuario oUsuario){
+    public Object isExist(Usuario oUsuario){
         String sql = "SELECT * FROM persona_entidad INNER JOIN usuario ON usuario.id=persona_entidad.id WHERE persona_entidad.rut='"+oUsuario.getRut()+"' AND usuario.clave=sha2('"+oUsuario.getClave()+"',0);";
         try {
             ResultSet oResultSet = oCon.getConnection().createStatement().executeQuery(sql);
@@ -34,6 +39,20 @@ public class DAO {
         }
         
         return null;
+    }
+    
+    public List<Pedido> getPedidos(){
+        String sql="Select * from view_pedido";
+        List<Pedido> oList=new ArrayList<>();
+        try {
+            ResultSet oResultSet=oCon.getConnection().createStatement().executeQuery(sql);
+            while(oResultSet.next()){
+                oList.add(new Pedido(oResultSet.getInt("id"), oResultSet.getString("Cliente"), oResultSet.getDate("Fecha"), oResultSet.getTime("Hora"), oResultSet.getString("Tipo Pedido")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return oList;
     }
     
 }

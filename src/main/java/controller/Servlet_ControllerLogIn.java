@@ -95,22 +95,18 @@ public class Servlet_ControllerLogIn extends HttpServlet {
 
             DAO oDao = new DAO(oConexionSingleton);
 
-            Usuario oUsuario1 = oDao.isExist(oUsuario);
+            Usuario oUsuario1 = (Usuario) oDao.isExist(oUsuario);
 
             out.println("</body>");
-            String redireccion="";
+            String redireccion = "";
 
             if (oUsuario1 != null) {
-                if (oUsuario1.getTipo_user()==1) {
-                    if (oUsuario1.getArea()==5 && oUsuario1.getCargo()==1) {
-                        redireccion="Menu/MenuPrincipal.jsp";
-                    }
-                }else if (oUsuario1.getTipo_user()==2) {
-                    if (oUsuario1.getArea()==4 && oUsuario1.getCargo()==1) {
-                        redireccion="Menu/MenuAdmin.jsp";
-                    }else if (oUsuario1.getArea()==3 && oUsuario1.getCargo()==2) {
-                        redireccion="Menu/MenuUser.jsp";
-                    }
+                if (oUsuario1.getTipo_user() == 1) {
+                    redireccion = "Menu/MenuPrincipal.jsp";
+                } else if (oUsuario1.getTipo_user() == 2) {
+                    redireccion = "Menu/MenuAdmin.jsp";
+                } else if (oUsuario1.getTipo_user() == 3) {
+                    redireccion = "Menu/MenuUser.jsp";
                 }
                 out.print("<script>\n"
                         + "            function succes() {\n"
@@ -148,7 +144,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                         + "                        },\n"
                         + "                        willClose: () => {\n"
                         + "                              clearInterval(timerInterval)\n"
-                        + "                         window.location.href = '"+redireccion+"';\n"
+                        + "                         window.location.href = '" + redireccion + "';\n"
                         + "                        }\n"
                         + "                     });\n"
                         + "                   }\n"
@@ -164,7 +160,7 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                 out.print("<script>succes();</script>");
                 HttpSession session = request.getSession();
                 session.setAttribute("Usuario", oUsuario1);
-                //session.setMaxInactiveInterval(1*60);
+                session.setMaxInactiveInterval(60 * 60);
                 /*request.setAttribute("Usuario", oUsuario1);
                 request.getRequestDispatcher("MenuPrincipal.jsp").forward(request, response);*/
                 //Thread.sleep(1000);

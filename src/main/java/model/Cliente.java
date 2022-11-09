@@ -13,21 +13,27 @@ public class Cliente extends Persona{
     private int id_Cliente;
     private String direccion;
     private int telefono;
+    private String correo;
+    private String clave;
 
     public Cliente() {
     }
 
-    public Cliente(int id_Cliente, String direccion, int telefono) {
+    public Cliente(int id_Cliente, String direccion, int telefono, String correo, String clave) {
         this.id_Cliente = id_Cliente;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.correo = correo;
+        this.clave = clave;
     }
 
-    public Cliente(int id_Cliente, String direccion, int telefono, int id, String rut, String nombre, String apellido) {
+    public Cliente(int id_Cliente, String direccion, int telefono, String correo, String clave, int id, String rut, String nombre, String apellido) {
         super(id, rut, nombre, apellido);
         this.id_Cliente = id_Cliente;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.correo = correo;
+        this.clave = clave;
     }
 
     public int getId_Cliente() {
@@ -53,6 +59,24 @@ public class Cliente extends Persona{
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    
 
     @Override
     public String toString() {

@@ -48,7 +48,7 @@ public class Dao_Usuario implements Crud<Usuario>{
 
     @Override
     public Usuario get(int id) {
-        String sql = "SELECT * FROM usuario WHERE id='"+id+"'";
+        String sql = "SELECT * FROM `persona_entidad` INNER JOIN usuario ON persona_entidad.id=usuario.id WHERE id='"+id+"'";
         try {
             ResultSet oResultSet=oConexion.getConnection().createStatement().executeQuery(sql);
             if (oResultSet.next()) {
@@ -61,7 +61,7 @@ public class Dao_Usuario implements Crud<Usuario>{
     }
     
     public Usuario get(String rut) {
-        String sql = "SELECT * FROM usuario WHERE rut='"+rut+"'";
+        String sql = "SELECT * FROM `persona_entidad` INNER JOIN usuario ON persona_entidad.id=usuario.id WHERE rut='"+rut+"'";
         try {
             ResultSet oResultSet=oConexion.getConnection().createStatement().executeQuery(sql);
             if (oResultSet.next()) {

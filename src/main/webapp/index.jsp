@@ -70,7 +70,7 @@
         <div class="container log">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <div class="card">
+                    <div class="card cardIndex">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <h2 class="text-center text-white m-3">Bienvenid@</h2>
@@ -79,7 +79,7 @@
                         <div class="row fondo text-center">
                             <div class="col-sm-12 col-md-12 col-lg-6 d-none d-lg-block d-print-block">
                                 <div class="card-body">
-                                    <img class="m-2 mb-5" src="Img/1.png" width="400" height="400" alt="alt"/>
+                                    <img class="m-2 mb-5 logoCard" src="Img/1.png" width="400" height="400" alt="alt"/>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">

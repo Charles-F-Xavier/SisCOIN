@@ -1,16 +1,13 @@
 <%-- 
-    Document   : BaseDeDatos
-    Created on : 02-11-2022, 00:01:06
+    Document   : Registros
+    Created on : 03-11-2022, 20:10:30
     Author     : jr972
 --%>
 
-<%@page import="model.Area"%>
-<%@page import="service.Dao_Area"%>
-<%@page import="java.util.List"%>
-<%@page import="model.Usuario"%>
-<%@page import="model.Tipo_User"%>
 <%@page import="service.Dao_TipoUser"%>
 <%@page import="db.ConexionSingleton"%>
+<%@page import="model.Tipo_User"%>
+<%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     Usuario oUsuario = (Usuario) session.getAttribute("Usuario");
@@ -39,8 +36,6 @@
         <link href="../../Css/sidebar.css" rel="stylesheet">
         <link href="../../Css/styleOffcanvas.css" rel="stylesheet">
         <link rel="stylesheet" href="../../Css/datatables.min.css"/>
-        <link rel="stylesheet" href="../../Css/sweetalert2.min.css"/>
-        <link rel="stylesheet" href="../../Css/animate.min.css"/>
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -684,218 +679,40 @@
         <section class="home-section principal">
             <div class="container-fluid principal mt-3 ">
                 <div class="row justify-content-center">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="modal fade" id="addTypeUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form>
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Nuevo Tipo de Usuario</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
-                                                    <input type="text" class="form-control" placeholder="Ej. Practicante" name="txt_nombreTypeUser" id="nameTypeUser" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-primary">Aceptar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="modal fade" id="editTypeUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form>
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Id</span>
-                                                    <input type="text" class="form-control" readonly name="txt_idTypeUserE" id="idTypeUserE" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
-                                                    <input type="text" class="form-control" placeholder="Ej. Practicante" name="txt_nameTypeUserE" id="nameTypeUserE" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-primary">Aceptar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="modal fade" id="addArea" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form>
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Nueva Area</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
-                                                    <input type="text" class="form-control" placeholder="Ej. Externo" name="txt_nombreArea" id="nameArea" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-primary">Aceptar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="modal fade" id="editArea" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <form>
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Id</span>
-                                                    <input type="text" class="form-control" readonly name="txt_idAreaE" id="idAreaE" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
-                                                    <input type="text" class="form-control" placeholder="Ej. Externo" name="txt_nameAreaE" id="nameAreaE" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="button" class="btn btn-primary">Aceptar</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-11 col-md-11 col-lg-5 my-2">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
                         <div class="card">
                             <div class="card-header text-white" style="background-color: #5a4bac">
-                                <div class="row justify-content-between" style="text-align: center; align-items: center">
-                                    <div class="col-sm-10 col-md-10 col-lg-8">
-                                        <h3>Tipos de Usuario</h3>
-                                    </div>
-                                    <div class="col-sm-2 col-md-2 col-lg-2" >
-                                        <button type="button" class="btn btn-primary" style="border-radius: 50%; font-size: 25px" data-bs-toggle="modal"  data-bs-target="#addTypeUser">
-                                            <i class='bx bx-plus' style="transform: translateY(10%)" data-bs-toggle="tooltip"  data-bs-title="Agregar"></i>
-                                        </button>
+                                <div class="row" style="text-align: center; align-items: center">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <h3>Registros</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table id="example" class=" table table-striped table-bordered" cellspacing="0" width="100%">
+                                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Detalle</th>
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>
+                                            <th>Nombre</th>
+                                            <th>Descripción</th>
+                                            <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th>Categoria</th>
+                                            <th>Proveedor</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%
-                                            List<Tipo_User> oListTip = oDao_TipoUser.getAll();
 
-                                            for (Tipo_User oTipo_User1 : oListTip) {
-                                        %>
-                                        <tr>
-                                            <td><% out.print(oTipo_User1.getId()); %></td>
-                                            <td><% out.print(oTipo_User1.getDetalle()); %></td>
-                                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTypeUser"><i class="bi bi-pencil-square"></i></button></td>
-                                            <td><button type="button" class="btn btn-primary" id="deleteTypeUser" onclick="delTypeUser()"><i class="bi bi-trash"></i></button></td>
-                                        </tr>
-                                        <%
-                                            }
-                                        %>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>Detalle</th>
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-11 col-md-11 col-lg-5 my-2">
-                        <div class="card">
-                            <div class="card-header text-white" style="background-color: #5a4bac">
-                                <div class="row justify-content-between" style="text-align: center; align-items: center">
-                                    <div class="col-sm-10 col-md-10 col-lg-8">
-                                        <h3>Areas</h3>
-                                    </div>
-                                    <div class="col-sm-2 col-md-2 col-lg-2" >
-                                        <button type="button" class="btn btn-primary" style="border-radius: 50%; font-size: 25px" data-bs-toggle="modal" data-bs-target="#addArea">
-                                            <i class='bx bx-plus' style="transform: translateY(10%)" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Agregar"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <table id="example2" class=" table table-striped table-bordered" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Detalle</th>
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%
-                                            Dao_Area oDao_Area = new Dao_Area(oConexionSingleton);
-                                            List<Area> oListArea = oDao_Area.getAll();
-
-                                            for (Area oArea : oListArea) {
-                                        %>
-                                        <tr>
-                                            <td><% out.print(oArea.getId()); %></td>
-                                            <td><% out.print(oArea.getDetalle()); %></td>
-                                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editArea"><i class="bi bi-pencil-square"></i></button></td>
-                                            <td><button type="button" class="btn btn-primary" id="deleteArea" onclick="delArea()"><i class="bi bi-trash"></i></button></td>
-                                        </tr>
-                                        <%
-                                            }
-                                        %>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Detalle</th>
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>
+                                            <th>Nombre</th>
+                                            <th>Descripción</th>
+                                            <th>Precio</th>
+                                            <th>Stock</th>
+                                            <th>Categoria</th>
+                                            <th>Proveedor</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -919,123 +736,59 @@
     </body>
     <script src="../../Js/sidebarMove.js"></script>
     <script src="../../Bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../Js/sweetalert2.all.min.js"></script>
     <script src="../../Js/datatables.min.js"></script>
     <script src="../../Js/pdfmake.min.js"></script>
     <script src="../../Js/vfs_fonts.js"></script>
-    <script type="text/javascript">
-                                                $(document).ready(function () {
-                                                    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-                                                    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+    <script>
+        $(document).ready(function () {
 
-                                                    var table = $('#example').DataTable({
-                                                        "responsive": true,
-                                                        "buttons": ['copy', 'csv', 'excel', 'pdf', 'print'],
-                                                        "lengthChange": false,
-                                                        "autoWidth": false,
-                                                        "pagingType": 'full_numbers',
-                                                        "language": {
-                                                            "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
-                                                            "zeroRecords": "No se han encontrado registros",
-                                                            "info": "Mostrando la página _PAGE_ de _PAGES_",
-                                                            "infoEmpty": "No hay registros disponibles",
-                                                            "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                                                            "search": "Buscar:",
-                                                            "paginate": {
-                                                                'first': 'Primero',
-                                                                'next': 'Siguiente',
-                                                                'previous': 'Anterior',
-                                                                'last': 'Ultimo'
-                                                            }
-                                                        }
-                                                    });
-                                                    table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
+            var table = $('#example').DataTable({
+                "responsive": true,
+                "buttons": ['copy', 'csv', 'excel', 'pdf', 'print'],
+                "lengthChange": false,
+                "autoWidth": false,
+                "pagingType": 'full_numbers',
+                "language": {
+                    "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
+                    "zeroRecords": "No se han encontrado registros",
+                    "info": "Mostrando la página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                    "search": "Buscar:",
+                    "paginate": {
+                        'first': 'Primero',
+                        'next': 'Siguiente',
+                        'previous': 'Anterior',
+                        'last': 'Ultimo'
+                    }
+                }
+            });
+            table.buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)');
 
-                                                    var table2 = $('#example2').DataTable({
-                                                        "responsive": true,
-                                                        "buttons": ['copy', 'csv', 'excel', 'pdf', 'print'],
-                                                        "lengthChange": false,
-                                                        "autoWidth": false,
-                                                        "pagingType": 'full_numbers',
-                                                        "language": {
-                                                            "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
-                                                            "zeroRecords": "No se han encontrado registros",
-                                                            "info": "Mostrando la página _PAGE_ de _PAGES_",
-                                                            "infoEmpty": "No hay registros disponibles",
-                                                            "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                                                            "search": "Buscar:",
-                                                            "paginate": {
-                                                                'first': 'Primero',
-                                                                'next': 'Siguiente',
-                                                                'previous': 'Anterior',
-                                                                'last': 'Ultimo'
-                                                            }
-                                                        }
-                                                    });
-                                                    table2.buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
-
-                                                    $('[data-toggle="tooltip"]').tooltip({
-                                                        placement: 'top'
-                                                    });
-                                                });
-
-
-
-                                                function delTypeUser() {
-                                                    Swal.fire({
-                                                        title: '¿Estas seguro de Borrar esto?',
-                                                        text: 'Recuera que no desaparecera por completo, solo se deshabilitara.',
-                                                        showClass: {
-                                                            popup: 'animate__animated animate__fadeInDown'
-                                                        },
-                                                        showDenyButton: true,
-                                                        confirmButtonText: 'Borrar',
-                                                        denyButtonText: 'Cancelar',
-                                                    }).then((result) => {
-                                                        /* Read more about isConfirmed, isDenied below */
-                                                        if (result.isConfirmed) {
-                                                            Swal.fire('Se ha borrado!', '', 'success')
-                                                        } else if (result.isDenied) {
-                                                            Swal.fire('Ok, No borraremos esto', '', 'info')
-                                                        }
-                                                    });
-                                                }
-                                                function delArea() {
-                                                    Swal.fire({
-                                                        title: '¿Estas seguro de Borrar esto?',
-                                                        text: 'Recuera que no desaparecera por completo, solo se deshabilitara.',
-                                                        showDenyButton: true,
-                                                        confirmButtonText: 'Borrar',
-                                                        denyButtonText: 'Cancelar',
-                                                    }).then((result) => {
-                                                        /* Read more about isConfirmed, isDenied below */
-                                                        if (result.isConfirmed) {
-                                                            Swal.fire('Se ha borrado!', '', 'success')
-                                                        } else if (result.isDenied) {
-                                                            Swal.fire('Ok, No borraremos esto', '', 'info')
-                                                        }
-                                                    });
-                                                }
-                                                const body = document.querySelector('body');
-                                                body.onmousemove = function () {
-        <%
-             session.setMaxInactiveInterval(6 * 60);
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'top'
+            });
+        });
+        /*const body = document.querySelector('body');
+         body.onmousemove = function () {
+         <%
+             //session.setMaxInactiveInterval(6*60);
 
         %>
-                                                    var x =<%=session.getMaxInactiveInterval()%>;
-                                                    //console.log("estas moviendo el mouse"+x);
-                                                };
-                                                var maxtime =<%=session.getMaxInactiveInterval()%>;
-                                                function verificarSession() {
-                                                    var maxtime =<%=session.getMaxInactiveInterval()%>;
-                                                    console.log(maxtime);
-                                                    if (maxtime == 1800) {
-                                                        console.log("Session destroy");
-                                                    }
-                                                }
-                                                setTimeout(verificarSession, 6000);
-                                                verificarSession();
-                                                var intervalo = setInterval(verificarSession, maxtime * 100);
+         var x=<%=session.getMaxInactiveInterval()%>;
+         console.log("estas moviendo el mouse"+x);
+         };*/
+        /*var maxtime =<%=session.getMaxInactiveInterval()%>;
+         function verificarSession() {
+         var maxtime =<%=session.getMaxInactiveInterval()%>;
+         console.log(maxtime);
+         if (maxtime == 1800) {
+         console.log("Session destroy");
+         }
+         }
+         /*setTimeout(verificarSession, 6000);
+         verificarSession();*/
+        //var intervalo = setInterval(verificarSession, maxtime * 100);
 
     </script>
 </html>
