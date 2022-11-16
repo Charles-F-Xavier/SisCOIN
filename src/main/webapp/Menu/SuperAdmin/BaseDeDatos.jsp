@@ -278,14 +278,87 @@
                     </a>
                     <span class="text-white mb-2" style="font-size: 24px;"><% out.print(oUsuario.getNombre()); %></span>
                 </div>
-                <div class="d-lg-block d-none" style="margin-right: 50px;">
-                    <button class="d-flex btn btn-primary position-relative" type="button">
-                        <i class='bx bxs-bell' style="font-size: 22px;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            1
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-                    </button>
+                <div class="d-lg-block d-none dropdown-center" style="margin-right: 50px;">
+                    <div class="dropstart">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 500px;">
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Reciente</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 15 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 30 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -488,14 +561,87 @@
                     </a>
                     <span class="text-white mb-2" style="font-size: 24px;"><% out.print(oUsuario.getNombre()); %></span>
                 </div>
-                <div class="d-lg-block d-none" style="margin-right: 50px;">
-                    <button class="d-flex btn btn-primary position-relative" type="button">
-                        <i class='bx bxs-bell' style="font-size: 22px;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            1
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-                    </button>
+                <div class="d-lg-block d-none dropdown-center" style="margin-right: 50px;">
+                    <div class="dropstart">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 500px;">
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Reciente</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 15 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 30 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -667,14 +813,87 @@
                     </a>
                     <span class="text-white mb-2" style="font-size: 24px;"><% out.print(oUsuario.getNombre()); %></span>
                 </div>
-                <div class="d-lg-block d-none" style="margin-right: 50px;">
-                    <button class="d-flex btn btn-primary position-relative" type="button">
-                        <i class='bx bxs-bell' style="font-size: 22px;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            1
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-                    </button>
+                <div class="d-lg-block d-none dropdown-center" style="margin-right: 50px;">
+                    <div class="dropstart">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 500px;">
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Reciente</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 15 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 30 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -797,7 +1016,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-11 col-md-11 col-lg-5 my-2">
+                    <div class="col-sm-12 col-md-12 col-lg-6 my-2">
                         <div class="card">
                             <div class="card-header text-white" style="background-color: #5a4bac">
                                 <div class="row justify-content-between" style="text-align: center; align-items: center">
@@ -849,7 +1068,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-11 col-md-11 col-lg-5 my-2">
+                    <div class="col-sm-11 col-md-11 col-lg-6 my-2">
                         <div class="card">
                             <div class="card-header text-white" style="background-color: #5a4bac">
                                 <div class="row justify-content-between" style="text-align: center; align-items: center">
@@ -935,6 +1154,23 @@
                                                         "autoWidth": false,
                                                         "pagingType": 'full_numbers',
                                                         "language": {
+                                                            "buttons": {
+                                                                "print": "Imprimir",
+                                                                "copy": "Copiar",
+                                                                "copySuccess": {
+                                                                    "1": "Copiada 1 fila al portapapeles",
+                                                                    "_": "Copiadas %ds fila al portapapeles"
+                                                                },
+                                                                "copyTitle": "Copiar al portapapeles",
+                                                            },
+                                                            "select": {
+                                                                "rows": {
+                                                                    "1": "1 fila seleccionada",
+                                                                    "_": "%d filas seleccionadas"
+                                                                }
+                                                            },
+                                                            "decimal": ",",
+                                                            "thousands": ".",
                                                             "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
                                                             "zeroRecords": "No se han encontrado registros",
                                                             "info": "Mostrando la página _PAGE_ de _PAGES_",
@@ -953,11 +1189,29 @@
 
                                                     var table2 = $('#example2').DataTable({
                                                         "responsive": true,
+                                                        "pageLength": 3,
                                                         "buttons": ['copy', 'csv', 'excel', 'pdf', 'print'],
                                                         "lengthChange": false,
                                                         "autoWidth": false,
                                                         "pagingType": 'full_numbers',
                                                         "language": {
+                                                            "buttons": {
+                                                                "print": "Imprimir",
+                                                                "copy": "Copiar",
+                                                                "copySuccess": {
+                                                                    "1": "Copiada 1 fila al portapapeles",
+                                                                    "_": "Copiadas %ds fila al portapapeles"
+                                                                },
+                                                                "copyTitle": "Copiar al portapapeles",
+                                                            },
+                                                            "select": {
+                                                                "rows": {
+                                                                    "1": "1 fila seleccionada",
+                                                                    "_": "%d filas seleccionadas"
+                                                                }
+                                                            },
+                                                            "decimal": ",",
+                                                            "thousands": ".",
                                                             "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
                                                             "zeroRecords": "No se han encontrado registros",
                                                             "info": "Mostrando la página _PAGE_ de _PAGES_",
@@ -1019,7 +1273,7 @@
                                                 const body = document.querySelector('body');
                                                 body.onmousemove = function () {
         <%
-             session.setMaxInactiveInterval(6 * 60);
+            session.setMaxInactiveInterval(6 * 60);
 
         %>
                                                     var x =<%=session.getMaxInactiveInterval()%>;

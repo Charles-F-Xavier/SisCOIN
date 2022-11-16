@@ -12,3 +12,5 @@ console.log(sidebarBtn);
 sidebarBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("close");
 });
+
+const carousel = new bootstrap.Carousel('#carouselExampleIndicators');

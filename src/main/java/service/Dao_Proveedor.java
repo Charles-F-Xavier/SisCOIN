@@ -49,11 +49,11 @@ public class Dao_Proveedor implements Crud<Proveedor>{
 
     @Override
     public Proveedor get(int id) {
-        String sql = "SELECT * FROM `persona_entidad` INNER JOIN proveedor ON persona_entidad.id=proveedor.id WHERE id='"+id+"'";
+        String sql = "SELECT * FROM `persona_entidad` INNER JOIN proveedor ON persona_entidad.id=proveedor.id WHERE persona_entidad.id="+id;
         try {
             ResultSet oResultSet=oConexion.getConnection().createStatement().executeQuery(sql);
             if (oResultSet.next()) {
-                return new Proveedor(oResultSet.getInt("id"), oResultSet.getString("direccion"), oResultSet.getInt("telefono"));
+                return new Proveedor(oResultSet.getInt("id"), oResultSet.getString("direccion"), oResultSet.getInt("telefono"), oResultSet.getInt("id"), oResultSet.getString("rut"), oResultSet.getString("nombre"), oResultSet.getString("apellido"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dao_Proveedor.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,7 +62,7 @@ public class Dao_Proveedor implements Crud<Proveedor>{
     }
     
     public Proveedor get(String rut) {
-        String sql = "SELECT * FROM `persona_entidad` INNER JOIN proveedor ON persona_entidad.id=proveedor.id WHERE rut='"+rut+"'";
+        String sql = "SELECT * FROM `persona_entidad` INNER JOIN proveedor ON persona_entidad.id=proveedor.id WHERE persona_entidad.rut='"+rut+"'";
         try {
             ResultSet oResultSet=oConexion.getConnection().createStatement().executeQuery(sql);
             if (oResultSet.next()) {

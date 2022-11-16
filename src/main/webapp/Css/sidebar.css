@@ -258,7 +258,6 @@ body{
 }
 .home-section{
     position: relative;
-    background: #E4E9F7;
     min-height: calc(100vh - 60px - 106px);
     left: 350px;
     width: calc(100% - 350px);
@@ -347,6 +346,7 @@ body{
 
     .footer{
         height: 100px;
+        font-size: 10px;
     }
     .sidebar ~ .footer{
         left: 0;

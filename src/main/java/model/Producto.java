@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.io.InputStream;
+import java.sql.Date;
+
 /**
  *
  * @author jr972
@@ -17,11 +20,14 @@ public class Producto {
     private int stock;
     private int id_categoria;
     private int id_proveedor;
+    private InputStream caratula;
+    private Date caducidad;
+    private String marca;
 
     public Producto() {
     }
 
-    public Producto(int id, String nombre, String descripcion, int precio, int stock, int id_categoria, int id_proveedor) {
+    public Producto(int id, String nombre, String descripcion, int precio, int stock, int id_categoria, int id_proveedor, InputStream caratula, Date caducidad, String marca) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -29,6 +35,9 @@ public class Producto {
         this.stock = stock;
         this.id_categoria = id_categoria;
         this.id_proveedor = id_proveedor;
+        this.caratula = caratula;
+        this.caducidad = caducidad;
+        this.marca = marca;
     }
 
     public int getId() {
@@ -87,11 +96,32 @@ public class Producto {
         this.id_proveedor = id_proveedor;
     }
 
-    @Override
-    public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock + ", id_categoria=" + id_categoria + ", id_proveedor=" + id_proveedor + '}';
+    public InputStream getCaratula() {
+        return caratula;
     }
+
+    public void setCaratula(InputStream caratula) {
+        this.caratula = caratula;
+    }
+
+    public Date getCaducidad() {
+        return caducidad;
+    }
+
+    public void setCaducidad(Date caducidad) {
+        this.caducidad = caducidad;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
     
+
     
     
 }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Cliente;
 import model.Pedido;
 import model.Usuario;
 
@@ -25,13 +26,28 @@ public class DAO {
         this.oCon = oCon;
     }
 
-    public Object isExist(Usuario oUsuario){
+    public Usuario isExist(Usuario oUsuario){
         String sql = "SELECT * FROM persona_entidad INNER JOIN usuario ON usuario.id=persona_entidad.id WHERE persona_entidad.rut='"+oUsuario.getRut()+"' AND usuario.clave=sha2('"+oUsuario.getClave()+"',0);";
         try {
             ResultSet oResultSet = oCon.getConnection().createStatement().executeQuery(sql);
             if(oResultSet.next()){
                 return new Usuario(oResultSet.getInt("id"), oResultSet.getString("correo"), oResultSet.getInt("telefono"), oResultSet.getString("clave"), oResultSet.getInt("tipo_user"), 
                         oResultSet.getInt("cargo"), oResultSet.getInt("area"),
+                        oResultSet.getInt("id"),oResultSet.getString("rut"), oResultSet.getString("nombre"),oResultSet.getString("apellido"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+    
+    public Cliente isExistClient(Cliente oCliente){
+        String sql = "SELECT * FROM persona_entidad INNER JOIN cliente ON cliente.id=persona_entidad.id WHERE persona_entidad.rut='"+oCliente.getRut()+"' AND cliente.clave=sha2('"+oCliente.getClave()+"',0);";
+        try {
+            ResultSet oResultSet = oCon.getConnection().createStatement().executeQuery(sql);
+            if(oResultSet.next()){
+                return new Cliente(oResultSet.getInt("id"), oResultSet.getString("direccion"), oResultSet.getInt("telefono"), oResultSet.getString("correo"), oResultSet.getString("clave"),
                         oResultSet.getInt("id"),oResultSet.getString("rut"), oResultSet.getString("nombre"),oResultSet.getString("apellido"));
             }
         } catch (SQLException e) {

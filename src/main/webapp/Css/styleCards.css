@@ -7,3 +7,50 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : jr972
 */
 
+.card-header, .card-footer{
+    background-color: #e4e9f7;
+}
+
+.card-img-top{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+@media screen and (max-width: 768px){
+    .card-img-top{
+        height: 200px !important;
+        width: 175px;
+    }
+
+    .card-header{
+        display: block;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .card-img-top{
+        height: 200px !important;
+        width: 175px;
+        left: 50%;
+    }
+
+    .card-header{
+        display: block;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 1920px){
+    .card-img-top{
+        height: 175px !important;
+        left: 50%;
+    }
+
+    .card-header{
+        display: block;
+        margin: auto;
+    }
+}

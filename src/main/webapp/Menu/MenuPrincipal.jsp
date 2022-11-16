@@ -50,6 +50,11 @@
                     font-size: 3.5rem;
                 }
             }
+            .show-notifi{
+                display: block;
+                z-index: 1000;
+                transition: all 2s ease;
+            }
         </style>
     </head>
     <body>
@@ -266,26 +271,173 @@
                         </ul>
                     </div>
                 </div>
+                <div class="offcanvas-lg offcanvas-end" style="background-color: #5a4bac" tabindex="-1" id="notifications" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <a class="navbar-brand" href="#">
+                            <img src="../Img/iconBack.png" alt="No disponible" width="30" height="30">
+                            <span class="text-white">Local Cholito</span>
+                        </a>
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none d-block nav-links">
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="MenuPrincipal.jsp">
+                                    <i class='bx bx-home-smile'></i>
+                                    <span class="link_name">Inicio</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/BaseDeDatos.jsp">
+                                    <i class='bx bx-data'></i>
+                                    <span class="link_name">Base de datos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Productos.jsp">
+                                    <i class='bx bx-purchase-tag'></i>
+                                    <span class="link_name">Productos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Ofertas.jsp">
+                                    <i class='bx bxs-offer'></i>
+                                    <span class="link_name">Ofertas</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Agenda.jsp">
+                                    <i class='bx bx-calendar-check'></i>
+                                    <span class="link_name">Agenda</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Usuarios.jsp">
+                                    <i class='bx bx-user'></i>
+                                    <span class="link_name">Usuarios</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="#">
+                                    <i class='bx bx-history'></i>
+                                    <span class="link_name">Registros</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" href="SuperAdmin/Pedidos.jsp">
+                                    <i class='bx bx-bell' ></i>
+                                    <span class="link_name">Pedidos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="profile-details" >
+                                    <div class="profile-content">
+                                        <a class="nav-link active text-white" aria-current="page" href="#">
+                                            <i class='bx bx-user' ></i>
+                                        </a>
+                                    </div>
+                                    <div class="name-job">
+                                        <div class="profile_name"><% out.print(oUsuario.getNombre()); %></div>
+                                        <div class="job"><% out.print(oTipo_User.getDetalle());%></div>
+                                    </div>
+                                    <a href="../ControllerLogOut.do"><i class='bx bx-log-out perfil'></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="d-lg-block d-md-block d-none profile-nav" style="margin-right: 50px;">
                     <a href="#">
                         <i class='bx bx-user text-white' style="font-size: 30px; transform: translateY(15%)"></i>
                     </a>
                     <span class="text-white mb-2" style="font-size: 24px;"><% out.print(oUsuario.getNombre()); %></span>
                 </div>
-                <div class="d-lg-block d-none" style="margin-right: 50px;">
-                    <button class="d-flex btn btn-primary position-relative" type="button">
-                        <i class='bx bxs-bell' style="font-size: 22px;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            1
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-                    </button>
+                <div class="d-lg-block d-none dropdown-center" style="margin-right: 50px;">
+                    <div class="dropstart">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 500px;">
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Reciente</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 15 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 30 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
         <section class="home-section principal">
             <div class="container-fluid principal mt-3 ">
-                
                 <div class="row justify-content-center m-2">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
                         <div class="card">
@@ -311,7 +463,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -351,7 +503,13 @@
     <script src="../Js/vfs_fonts.js"></script>
     <script>
         $(document).ready(function () {
-
+            const toastTrigger = document.getElementById('liveToastBtn');
+            const toastLiveExample = document.getElementById('notifications');
+            if (toastTrigger) {
+                toastTrigger.addEventListener('click', () => {
+                    toastLiveExample.classList.toggle('show-notifi');
+                });
+            }
             var table = $('#example').DataTable({
                 "responsive": true,
                 "buttons": ['copy', 'csv', 'excel', 'pdf', 'print'],
@@ -359,6 +517,23 @@
                 "autoWidth": false,
                 "pagingType": 'full_numbers',
                 "language": {
+                    "buttons": {
+                        "print": "Imprimir",
+                        "copy": "Copiar",
+                        "copySuccess": {
+                            "1": "Copiada 1 fila al portapapeles",
+                            "_": "Copiadas %ds fila al portapapeles"
+                        },
+                        "copyTitle": "Copiar al portapapeles",
+                    },
+                    "select": {
+                        "rows": {
+                            "1": "1 fila seleccionada",
+                            "_": "%d filas seleccionadas"
+                        }
+                    },
+                    "decimal": ",",
+                    "thousands": ".",
                     "lengthMenu": "Mostrar " + '<select style="backgound-size:5px;"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option></select>' + " registros por página",
                     "zeroRecords": "No se han encontrado registros",
                     "info": "Mostrando la página _PAGE_ de _PAGES_",
@@ -379,26 +554,26 @@
                 placement: 'top'
             });
         });
-        /*const body = document.querySelector('body');
-         body.onmousemove = function () {
-         <%
-            //session.setMaxInactiveInterval(6*60);
+        const body = document.querySelector('body');
+        body.onmousemove = function () {
+        <%
+             session.setMaxInactiveInterval(60 * 60);
 
         %>
-         var x=<%=session.getMaxInactiveInterval()%>;
-         console.log("estas moviendo el mouse"+x);
-         };*/
-        /*var maxtime =<%=session.getMaxInactiveInterval()%>;
-         function verificarSession() {
-         var maxtime =<%=session.getMaxInactiveInterval()%>;
-         console.log(maxtime);
-         if (maxtime == 1800) {
-         console.log("Session destroy");
-         }
-         }
-         /*setTimeout(verificarSession, 6000);
-         verificarSession();*/
-        //var intervalo = setInterval(verificarSession, maxtime * 100);
+            var x =<%=session.getMaxInactiveInterval()%>;
+            console.log("estas moviendo el mouse" + x);
+        };
+        var maxtime =<%=session.getMaxInactiveInterval()%>;
+        function verificarSession() {
+            var maxtime =<%=session.getMaxInactiveInterval()%>;
+            console.log(maxtime);
+            if (maxtime == 1800) {
+                console.log("Session destroy");
+            }
+        }
+        setTimeout(verificarSession, 6000);
+        verificarSession();
+        var intervalo = setInterval(verificarSession, maxtime * 100);
 
     </script>
 </html>

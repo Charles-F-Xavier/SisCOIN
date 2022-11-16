@@ -279,14 +279,87 @@
                     </a>
                     <span class="text-white mb-2" style="font-size: 24px;"><% out.print(oUsuario.getNombre()); %></span>
                 </div>
-                <div class="d-lg-block d-none" style="margin-right: 50px;">
-                    <button class="d-flex btn btn-primary position-relative" type="button">
-                        <i class='bx bxs-bell' style="font-size: 22px;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            1
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-                    </button>
+                <div class="d-lg-block d-none dropdown-center" style="margin-right: 50px;">
+                    <div class="dropstart">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 500px;">
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Reciente</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 15 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 30 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -489,14 +562,87 @@
                     </a>
                     <span class="text-white mb-2" style="font-size: 24px;"><% out.print(oUsuario.getNombre()); %></span>
                 </div>
-                <div class="d-lg-block d-none" style="margin-right: 50px;">
-                    <button class="d-flex btn btn-primary position-relative" type="button">
-                        <i class='bx bxs-bell' style="font-size: 22px;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            1
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-                    </button>
+                <div class="d-lg-block d-none dropdown-center" style="margin-right: 50px;">
+                    <div class="dropstart">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 500px;">
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Reciente</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 15 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 30 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -668,14 +814,87 @@
                     </a>
                     <span class="text-white mb-2" style="font-size: 24px;"><% out.print(oUsuario.getNombre()); %></span>
                 </div>
-                <div class="d-lg-block d-none" style="margin-right: 50px;">
-                    <button class="d-flex btn btn-primary position-relative" type="button">
-                        <i class='bx bxs-bell' style="font-size: 22px;"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            1
-                            <span class="visually-hidden">unread messages</span>
-                        </span>
-                    </button>
+                <div class="d-lg-block d-none dropdown-center" style="margin-right: 50px;">
+                    <div class="dropstart">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell-fill"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu" style="width: 500px;">
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Reciente</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 15 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card m-2">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <img src="../../Img/iconBack.png" alt="no encontrada" width="30" height="30">
+                                            </div>
+                                            <div class="col-sm-7 col-md-7 col-lg-7">
+                                                <strong class="me-auto">Notificación</strong>
+                                            </div>
+                                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                                <small class="text-muted">Hace 30 min.</small>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        Tienes un nuevo pedido
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -744,8 +963,15 @@
                                         <div class="row mt-3">
                                             <div class="colsm-12 col-md-6 col-lg-6">
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">Precio Oferta</span>
-                                                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <label class="input-group-text" for="inputGroupSelect01">Oferta</label>
+                                                    <select class="form-select" id="inputGroupSelect01">
+                                                        <option selected>Elija...</option>
+                                                        <option value="10">10%</option>
+                                                        <option value="25">25%</option>
+                                                        <option value="50">50%</option>
+                                                        <option value="75">75%</option>
+                                                        <option value="90">90%</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -774,10 +1000,15 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10 ">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mx-4">
                         <div class="card">
                             <div class="card-header text-white" style="background-color: #5a4bac">
                                 <div class="row" style="text-align: center; align-items: center">
+                                    <!--<div class="col-sm-1 col-md-1 col-lg-1" >
+                                        <button type="button" class="btn btn-primary" style="border-radius: 50%; font-size: 25px" data-bs-toggle="modal" data-bs-target="#modalPromo">
+                                            <i class='bx bx-package' style="transform: translateY(10%)"></i>
+                                        </button>
+                                    </div>-->
                                     <div class="col-sm-10 col-md-10 col-lg-11">
                                         <h3>Ofertas Habilitadas</h3>
                                     </div>
@@ -938,33 +1169,33 @@
                 }
             });
             table2.buttons().container().appendTo('#listProductFilter_wrapper .col-md-6:eq(0)');
-           
+
 
             $('[data-toggle="tooltip"]').tooltip({
                 placement: 'top'
             });
         });
 
-        /*const body = document.querySelector('body');
-         body.onmousemove = function () {
-         <%
-                                                                     //session.setMaxInactiveInterval(6*60);
+        const body = document.querySelector('body');
+        body.onmousemove = function () {
+        <%
+            session.setMaxInactiveInterval(60 * 60);
 
         %>
-         var x=<%=session.getMaxInactiveInterval()%>;
-         console.log("estas moviendo el mouse"+x);
-         };*/
-        /*var maxtime =<%=session.getMaxInactiveInterval()%>;
-         function verificarSession() {
-         var maxtime =<%=session.getMaxInactiveInterval()%>;
-         console.log(maxtime);
-         if (maxtime == 1800) {
-         console.log("Session destroy");
-         }
-         }
-         /*setTimeout(verificarSession, 6000);
-         verificarSession();*/
-        //var intervalo = setInterval(verificarSession, maxtime * 100);
+            var x =<%=session.getMaxInactiveInterval()%>;
+            console.log("estas moviendo el mouse" + x);
+        };
+        var maxtime =<%=session.getMaxInactiveInterval()%>;
+        function verificarSession() {
+            var maxtime =<%=session.getMaxInactiveInterval()%>;
+            console.log(maxtime);
+            if (maxtime == 1800) {
+                console.log("Session destroy");
+            }
+        }
+        setTimeout(verificarSession, 6000);
+        verificarSession();
+        var intervalo = setInterval(verificarSession, maxtime * 100);
 
     </script>
 </html>

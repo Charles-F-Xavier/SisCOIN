@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Cliente;
 import model.Usuario;
 
 /**
@@ -93,9 +94,14 @@ public class Servlet_ControllerLogIn extends HttpServlet {
             oUsuario.setRut(rut);
             oUsuario.setClave(passw);
 
+            Cliente oCliente = new Cliente();
+
+            oCliente.setRut(rut);
+            oCliente.setClave(passw);
+
             DAO oDao = new DAO(oConexionSingleton);
 
-            Usuario oUsuario1 = (Usuario) oDao.isExist(oUsuario);
+            Usuario oUsuario1 = oDao.isExist(oUsuario);
 
             out.println("</body>");
             String redireccion = "";
@@ -152,18 +158,118 @@ public class Servlet_ControllerLogIn extends HttpServlet {
                         + "            }\n"
                         + "\n"
                         + "        </script>");
-                //out.println("Hola " + oUsuario1.getNombre());
-                /*out.println("<script type=\"text/javascript\">");
-                out.println("alert('User or password incorrect');");
+                //out.println("Hola " + oUsuario1);
+                out.println("<script type=\"text/javascript\">");
                 out.println("succes();");
-                out.println("</script>");*/
-                out.print("<script>succes();</script>");
+                out.println("</script>");
+                //out.print("<script>succes();</script>");
                 HttpSession session = request.getSession();
                 session.setAttribute("Usuario", oUsuario1);
                 session.setMaxInactiveInterval(60 * 60);
                 /*request.setAttribute("Usuario", oUsuario1);
                 request.getRequestDispatcher("MenuPrincipal.jsp").forward(request, response);*/
                 //Thread.sleep(1000);
+
+            } else if (oUsuario1 == null) {
+                Cliente oCliente1 = oDao.isExistClient(oCliente);
+                redireccion = "Menu/MenuCliente.jsp";
+                if (oCliente1 != null) {
+                    out.print("<script>\n"
+                            + "            function succes() {\n"
+                            + "                let timerInterval\n"
+                            + "                Swal.fire({\n"
+                            + "                   timer: 1300,\n"
+                            + "                   timerProgressBar: true,\n"
+                            + "                   didOpen: () => {\n"
+                            + "                         Swal.showLoading()\n"
+                            + "                         const b = Swal.getHtmlContainer().querySelector('b')\n"
+                            + "                         timerInterval = setInterval(() => {\n"
+                            + "                             b.textContent = Swal.getTimerLeft()\n"
+                            + "                         }, 100)\n"
+                            + "                   },\n"
+                            + "                   willClose: () => {\n"
+                            + "                         clearInterval(timerInterval)\n"
+                            + "                   }\n"
+                            + "                }).then((result) => {\n"
+                            + "                   if (result.dismiss === Swal.DismissReason.timer) {\n"
+                            + "                     Swal.fire({\n"
+                            + "                        title: 'Bienvenid@ " + oCliente1.getNombre() + "!',\n"
+                            + "                        text: 'Estamos ingresando!',\n"
+                            + "                        icon: 'success',\n"
+                            + "                        timer: 3000,\n"
+                            + "                        timerProgressBar: true,\n"
+                            + "                        showClass: {\n"
+                            + "                             popup: 'animate__animated animate__fadeInDown'\n"
+                            + "                        },\n"
+                            + "                        didOpen: () => {\n"
+                            + "                              Swal.showLoading()\n"
+                            + "                              const b = Swal.getHtmlContainer().querySelector('b')\n"
+                            + "                              timerInterval = setInterval(() => {\n"
+                            + "                                  b.textContent = Swal.getTimerLeft()\n"
+                            + "                              }, 100)\n"
+                            + "                        },\n"
+                            + "                        willClose: () => {\n"
+                            + "                              clearInterval(timerInterval)\n"
+                            + "                         window.location.href = '" + redireccion + "';\n"
+                            + "                        }\n"
+                            + "                     });\n"
+                            + "                   }\n"
+                            + "                });\n"
+                            + "            }\n"
+                            + "\n"
+                            + "        </script>");
+                    //out.println("Hola " + oCliente1);
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("succes();");
+                    out.println("</script>");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("Cliente", oCliente1);
+                    session.setMaxInactiveInterval(60 * 60);
+                } else {
+                    out.print("<script>\n"
+                            + "            function error() {\n"
+                            + "                let timerInterval\n"
+                            + "                Swal.fire({\n"
+                            + "                   timer: 1300,\n"
+                            + "                   timerProgressBar: true,\n"
+                            + "                   didOpen: () => {\n"
+                            + "                         Swal.showLoading()\n"
+                            + "                         const b = Swal.getHtmlContainer().querySelector('b')\n"
+                            + "                         timerInterval = setInterval(() => {\n"
+                            + "                             b.textContent = Swal.getTimerLeft()\n"
+                            + "                         }, 100)\n"
+                            + "                   },\n"
+                            + "                   willClose: () => {\n"
+                            + "                         clearInterval(timerInterval)\n"
+                            + "                   }\n"
+                            + "                }).then((result) => {\n"
+                            + "                   if (result.dismiss === Swal.DismissReason.timer) {\n"
+                            + "                     Swal.fire({\n"
+                            + "                        title: 'Alto!',\n"
+                            + "                        text: 'El cliente con el Rut: " + oCliente1.getRut() + " no se encuentra! Verificar credenciales o por favor registrese',\n"
+                            + "                        icon: 'error',\n"
+                            + "                        timer: 3000,\n"
+                            + "                        timerProgressBar: true,\n"
+                            + "                        didOpen: () => {\n"
+                            + "                              Swal.showLoading()\n"
+                            + "                              const b = Swal.getHtmlContainer().querySelector('b')\n"
+                            + "                              timerInterval = setInterval(() => {\n"
+                            + "                                  b.textContent = Swal.getTimerLeft()\n"
+                            + "                              }, 100)\n"
+                            + "                        },\n"
+                            + "                        willClose: () => {\n"
+                            + "                              clearInterval(timerInterval)\n"
+                            + "                         window.location.href = 'index.jsp';\n"
+                            + "                        }\n"
+                            + "                     });\n"
+                            + "                   }\n"
+                            + "                });\n"
+                            + "            }\n"
+                            + "\n"
+                            + "        </script>");
+                    //out.println("Hola ");
+                    out.print("<script>error();</script>");
+                }
 
             } else {
                 out.print("<script>\n"
